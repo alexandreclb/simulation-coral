@@ -1,0 +1,263 @@
+@media screen and (max-width: 426px) {
+
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 2.2em;
+    }
+
+    h3 {
+        font-size: 1.8em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    hr {
+        height: 4px;
+        width: 70%;
+    }
+
+    figure {
+        width: auto;
+        height: 90%;
+        margin-left: 0;
+    }
+
+    /* STRUCTURE HEADER & BURGER */
+    .logo {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    header {
+        height: 10vh;
+        justify-content: center;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+        position: absolute;
+        right: 1.5rem;
+    }
+
+    .overlay {
+        display: block;
+    }
+
+    /* ----------------------------Page d'acceuil------------------------------------------------------------------ */
+    #titre {
+        font-size: 4em;
+        letter-spacing: 0.1em;
+        white-space: normal;
+        /* Autorise le titre à passer sur deux lignes si l'écran est trop petit */
+        padding: 0 15px;
+        top: 40%;
+    }
+
+    #sstitre {
+        font-size: 1.3em;
+        width: 90%;
+        top: 65%;
+    }
+
+    /* ADAPTATION DES BLOCS DE CONTENU (BANDART / BANDIMG) */
+    .bandeau {
+        flex-flow: column nowrap;
+        /* Aligne l'image au-dessus ou au-dessous du texte au lieu d'à côté */
+        margin: 4em 0;
+        /* Réduit l'énorme espace vide de 30em pour le mobile */
+        padding: 1.5em;
+    }
+
+    .transition {
+        margin: 0 0 4em 0;
+        /* Aligne le premier bloc */
+    }
+
+    .bandimg,
+    .bandart {
+        width: 100%;
+        /* Les éléments prennent toute la largeur de l'écran du téléphone */
+        padding: 1em 0;
+    }
+
+    .bandeau p {
+        font-size: 1.05em;
+        text-align: justify;
+        /* Améliore la lisibilité des paragraphes sur écran étroit */
+    }
+
+    /* ----------------------------------------Recifs------------------------------------------------------- */
+    .reef-section {
+        padding: 3rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .reef-header h2 {
+        font-size: 2.4rem;
+    }
+
+    .reef-header h3 {
+        font-size: 1.6rem;
+    }
+
+    .reef-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .reef-text p {
+        margin-bottom: 1.5rem;
+    }
+
+    .stat-card {
+        position: relative;
+        top: 0;
+        padding: 2rem 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 3.5rem;
+    }
+
+
+    /* ----------------------------------especes------------------------------------------------------------- */
+    .faune-titre h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .gallerie>div,
+    .gallerie>div.col-03,
+    .gallerie>div.col-02 {
+        flex-basis: 100%;
+        height: 26rem;
+        /* Hauteur optimisée pour mobile */
+        margin: 0.5rem 0;
+    }
+
+    .gallerie h3 {
+        font-size: 2.4rem;
+        top: 70%;
+        width: 90%;
+    }
+
+    .gallerie>div>ul {
+        font-size: 1em;
+        width: 95%;
+        padding: 0.8rem;
+    }
+
+    .gallerie>div:active::before {
+        opacity: 1;
+    }
+
+    .gallerie>div:active h3 {
+        opacity: 0;
+    }
+
+    .gallerie>div:active ul {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    /* --------------------------------------corail--------------------------------------------------------------- */
+
+    .coral-hero {
+        padding: 80px 1rem;
+        /* Moins de vide vertical inutile */
+        background-attachment: scroll;
+        /* Évite les bugs de saccades sur mobile */
+    }
+
+    .coral-hero h1 {
+        font-size: 2.8rem;
+        /* Évite que le titre ne sorte de l'écran */
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .coral-hero h2 {
+        font-size: 1.1rem;
+        line-height: 1.4;
+        padding: 0 0.5rem;
+    }
+
+    /* --- 3. DISPOSITION DES BLOCS (Flexbox) --- */
+    .section-padding {
+        padding: 3.5rem 1rem;
+        /* Espacement plus équilibré */
+    }
+
+    .flex-container,
+    .flex-container.reverse {
+        flex-direction: column;
+        /* On empile tout verticalement */
+        gap: 2rem;
+        /* On réduit le grand espace de 5rem du bureau */
+    }
+
+    .text-block,
+    .image-block {
+        flex: none;
+        width: 100%;
+    }
+
+    .text-block p {
+        text-align: left;
+        font-size: 1rem;
+    }
+
+    .image-block img {
+        width: 100%;
+        height: auto;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* --- 4. ENCADRÉS TECHNIQUES & PARAMÈTRES --- */
+    .stats-box {
+        margin-top: 1.5rem;
+        padding: 1rem;
+    }
+
+    /* --- 5. GRILLES D'IMPACT & DE CONSERVATION --- */
+    .impact-section {
+        padding: 4rem 1rem;
+    }
+
+    .impact-section h2,
+    .conservation-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem !important;
+    }
+
+    .impact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Désactivation des effets de zoom (:hover) qui buggent au toucher sur mobile */
+    .impact-card:hover,
+    .text-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .impact-card {
+        padding: 1.5rem;
+    }
+
+    .text-card {
+        padding: 1.5rem;
+    }
+}

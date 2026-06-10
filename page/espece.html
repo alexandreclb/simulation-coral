@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page faune présentant les especes que l'on trouve en tunisie">
+    <meta name="author" content="Alexandre Coillot le Brun">
+    <meta name="keywords" content="tunisia, faune">
+
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo.png" class="logo">
+    <title>Species</title>
+</head>
+
+<body>
+    <header>
+        <figure>
+            <a href="../index.html">
+                <img src="../img/logo.png" alt="Logo CFC" class="logo">
+            </a>
+        </figure>
+
+        <div class="burger" onclick="openNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="desktopNav">
+            <a href="../page/corail.html">The corals</a>
+            <a href="../page/recifs.html">Reefs of the world</a>
+            <a href="../page/structure.html">Our Structure</a>
+            <a href="../page/espece.html">Main Species</a>
+            <a href="../page/experience.html">Test Yours</a>
+            <a href="../page/team.html">About Us</a>
+        </nav>
+
+        <div id="myNav" class="overlay">
+            <div class="overlay-content">
+                <a href="../page/corail.html" onclick="openNav()">The corals</a>
+                <hr>
+                <a href="../page/recifs.html" onclick="openNav()">Reefs of the world</a>
+                <hr>
+                <a href="../page/structure.html" onclick="openNav()">Our Structure</a>
+                <hr>
+                <a href="../page/espece.html" onclick="openNav()">Main Species</a>
+                <hr>
+                <a href="../page/experience.html" onclick="openNav()">Test Yours</a>
+                <hr>
+                <a href="../page/team.html" onclick="openNav()">About Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="espece">
+        <section class="faune-titre">
+            <h1>Main species that you can encounter on the reef</h1>
+            <p></p>
+        </section>
+        <hr>
+
+        <section class="gallerie">
+            <!-- 1. Elkhorn Coral -->
+            <div class="col-03" id="elkhorn">
+                <img src="../img/Elkhorn.jpg" alt="Elkhorn Coral">
+                <h3>Elkhorn Coral</h3>
+                <ul>
+                    <li><strong>Scientific Name:</strong> Acropora palmata</li>
+                    <li><strong>IUCN Status:</strong> Critically Endangered (CR)</li>
+                    <li><strong>Growth Rate:</strong> 5 to 10 cm per year</li>
+                    <li><strong>Depth:</strong> 0 to 5 meters</li>
+                    <li><strong>Habitat:</strong> Reef crests, high-wave energy zones</li>
+                    <li><strong>Skeleton Type:</strong> Branching, broad flat branches</li>
+                    <li><strong>Key Feature:</strong> Its massive branches break the force of waves, protecting
+                        coastlines from erosion.</li>
+                </ul>
+            </div>
+
+            <!-- 2. Staghorn Coral -->
+            <div class="col-03" id="staghorn">
+                <img src="../img/Staghorn.jpg" alt="Staghorn Coral">
+                <h3>Staghorn Coral</h3>
+                <ul>
+                    <li><strong>Scientific Name:</strong> Acropora cervicornis</li>
+                    <li><strong>IUCN Status:</strong> Critically Endangered (CR)</li>
+                    <li><strong>Growth Rate:</strong> 10 to 15 cm per year</li>
+                    <li><strong>Depth:</strong> 5 to 30 meters</li>
+                    <li><strong>Habitat:</strong> Deep lagoons and fore-reef slopes</li>
+                    <li><strong>Skeleton Type:</strong> Branching, thin cylindrical branches</li>
+                    <li><strong>Key Feature:</strong> It is the fastest-growing species in the Caribbean, forming dense
+                        thickets that serve as fish nurseries.</li>
+                </ul>
+            </div>
+
+            <!-- 3. Symmetrical Brain Coral -->
+            <div class="col-03" id="brain-coral">
+                <img src="../img/Symmetrical-Brain.jpeg" alt="Symmetrical Brain Coral">
+                <h3>Symmetrical Brain Coral</h3>
+                <ul>
+                    <li><strong>Scientific Name:</strong> Pseudodiploria strigosa</li>
+                    <li><strong>IUCN Status:</strong> Least Concern (LC)</li>
+                    <li><strong>Growth Rate:</strong> 0.5 to 1 cm per year</li>
+                    <li><strong>Depth:</strong> 1 to 40 meters</li>
+                    <li><strong>Habitat:</strong> Clear reef flats</li>
+                    <li><strong>Skeleton Type:</strong> Massive, smooth dome-shaped</li>
+                    <li><strong>Key Feature:</strong> Closely resembles the human brain; it is extremely solid and can
+                        live for several centuries.</li>
+                </ul>
+            </div>
+
+            <!-- 4. Great Star Coral -->
+            <div class="col-02" id="great-star">
+                <img src="../img/Great-Star.jpg" alt="Great Star Coral">
+                <h3>Great Star Coral</h3>
+                <ul>
+                    <li><strong>Scientific Name:</strong> Montastraea cavernosa</li>
+                    <li><strong>IUCN Status:</strong> Least Concern (LC)</li>
+                    <li><strong>Growth Rate:</strong> 0.3 to 0.8 cm per year</li>
+                    <li><strong>Depth:</strong> 10 to 60 meters</li>
+                    <li><strong>Habitat:</strong> External reef slopes</li>
+                    <li><strong>Skeleton Type:</strong> Massive, large protruding calices</li>
+                    <li><strong>Key Feature:</strong> Often displays striking red or green fluorescence under blue
+                        actinic light.</li>
+                </ul>
+            </div>
+
+            <!-- 5. Lobed Star Coral -->
+            <div class="col-02" id="lobed-star">
+                <img src="../img/Lobed-Star.jpg" alt="Lobed Star Coral">
+                <h3>Lobed Star Coral</h3>
+                <ul>
+                    <li><strong>Scientific Name:</strong> Orbicella annularis</li>
+                    <li><strong>IUCN Status:</strong> Endangered (EN)</li>
+                    <li><strong>Growth Rate:</strong> 0.5 to 1.2 cm per year</li>
+                    <li><strong>Depth:</strong> 0 to 80 meters</li>
+                    <li><strong>Habitat:</strong> Intermediate reef zones</li>
+                    <li><strong>Skeleton Type:</strong> Massive, pillar or lobe-shaped</li>
+                    <li><strong>Key Feature:</strong> One of the primary builders of the Belize Barrier Reef, forming
+                        monumental structures.</li>
+                </ul>
+            </div>
+
+            <!-- 6. Pillar Coral -->
+            <div class="col-03" id="pillar-coral">
+                <img src="../img/Pillar.jpg" alt="Pillar Coral">
+                <h3>Pillar Coral</h3>
+                <ul>
+                    <li><strong>Scientific Name:</strong> Dendrogyra cylindrus</li>
+                    <li><strong>IUCN Status:</strong> Vulnerable (VU)</li>
+                    <li><strong>Growth Rate:</strong> 0.8 to 2 cm per year</li>
+                    <li><strong>Depth:</strong> 1 to 25 meters</li>
+                    <li><strong>Habitat:</strong> Sandy floors or reef flats</li>
+                    <li><strong>Skeleton Type:</strong> Vertical columns (pillars)</li>
+                    <li><strong>Key Feature:</strong> Unlike most corals, its polyps remain extended during the day,
+                        giving it a furry appearance.</li>
+                </ul>
+            </div>
+
+            <!-- 7. Lettuce Coral -->
+            <div class="col-03" id="lettuce-coral">
+                <img src="../img/Lettuce.jpeg" alt="Lettuce Coral">
+                <h3>Lettuce Coral</h3>
+                <ul>
+                    <li><strong>Scientific Name:</strong> Agaricia agaricites</li>
+                    <li><strong>IUCN Status:</strong> Least Concern (LC)</li>
+                    <li><strong>Growth Rate:</strong> 1 to 3 cm per year</li>
+                    <li><strong>Depth:</strong> 5 to 70 meters</li>
+                    <li><strong>Habitat:</strong> Vertical walls, shaded areas</li>
+                    <li><strong>Skeleton Type:</strong> Foliaceous (leaf or plate-like)</li>
+                    <li><strong>Key Feature:</strong> Highly adaptable to low light, it often colonizes the darker
+                        corners of the reef.</li>
+                </ul>
+            </div>
+
+            <!-- 8. Fire Coral -->
+            <div class="col-03" id="fire-coral">
+                <img src="../img/Fire.jpg" alt="Fire Coral">
+                <h3>Fire Coral</h3>
+                <ul>
+                    <li><strong>Scientific Name:</strong> Millepora alcicornis</li>
+                    <li><strong>IUCN Status:</strong> Not Evaluated (NE)</li>
+                    <li><strong>Growth Rate:</strong> Fast (Invasive)</li>
+                    <li><strong>Depth:</strong> 1 to 40 meters</li>
+                    <li><strong>Habitat:</strong> Strong current zones</li>
+                    <li><strong>Skeleton Type:</strong> Encrusting or branching Hydrozoan</li>
+                    <li><strong>Key Feature:</strong> Not a true coral; it possesses stinging cells that cause immediate
+                        burning sensations upon contact.</li>
+                </ul>
+            </div>
+
+            <!-- 9. Finger Coral -->
+            <div class="col-02" id="finger-coral">
+                <img src="../img/Finger.jpg" alt="Finger Coral">
+                <h3>Finger Coral</h3>
+                <ul>
+                    <li><strong>Scientific Name:</strong> Porites porites</li>
+                    <li><strong>IUCN Status:</strong> Least Concern (LC)</li>
+                    <li><strong>Growth Rate:</strong> 1.5 to 2.5 cm per year</li>
+                    <li><strong>Depth:</strong> 0 to 25 meters</li>
+                    <li><strong>Habitat:</strong> Shallow lagoons, turbid areas</li>
+                    <li><strong>Skeleton Type:</strong> Branching, short thick fingers</li>
+                    <li><strong>Key Feature:</strong> Better at tolerating cloudy water and sedimentation than most
+                        other hard coral species.</li>
+                </ul>
+            </div>
+
+            <!-- 10. Grooved Brain Coral -->
+            <div class="col-02" id="grooved-brain">
+                <img src="../img/Grooved-Brain.jpeg" alt="Grooved Brain Coral">
+                <h3>Grooved Brain Coral</h3>
+                <ul>
+                    <li><strong>Scientific Name:</strong> Diploria labyrinthiformis</li>
+                    <li><strong>IUCN Status:</strong> Least Concern (LC)</li>
+                    <li><strong>Growth Rate:</strong> 0.4 to 0.7 cm per year</li>
+                    <li><strong>Depth:</strong> 1 to 30 meters</li>
+                    <li><strong>Habitat:</strong> Exposed reef areas</li>
+                    <li><strong>Skeleton Type:</strong> Massive, ridges with distinct grooves</li>
+                    <li><strong>Key Feature:</strong> Distinguished by wide winding valleys that form a complex,
+                        labyrinth-like network.</li>
+                </ul>
+            </div>
+
+            <!-- 11. Sinuous Cactus Coral -->
+            <div class="col-03" id="cactus-coral">
+                <img src="../img/Sinuous-Cactus.jpeg" alt="Sinuous Cactus Coral">
+                <h3>Sinuous Cactus Coral</h3>
+                <ul>
+                    <li><strong>Scientific Name:</strong> Isophyllia sinuosa</li>
+                    <li><strong>IUCN Status:</strong> Least Concern (LC)</li>
+                    <li><strong>Growth Rate:</strong> Very slow</li>
+                    <li><strong>Depth:</strong> 1 to 15 meters</li>
+                    <li><strong>Habitat:</strong> Protected reefs, seagrass beds</li>
+                    <li><strong>Skeleton Type:</strong> Massive, very fleshy ridges</li>
+                    <li><strong>Key Feature:</strong> Its tissue is very thick and colorful, almost entirely masking the
+                        rigid skeleton beneath.</li>
+                </ul>
+            </div>
+
+            <!-- 12. Mountainous Star Coral -->
+            <div class="col-03" id="mountain-star">
+                <img src="../img/Mountainous-Star.jpg" alt="Mountainous Star Coral">
+                <h3>Mountainous Star Coral</h3>
+                <ul>
+                    <li><strong>Scientific Name:</strong> Orbicella faveolata</li>
+                    <li><strong>IUCN Status:</strong> Endangered (EN)</li>
+                    <li><strong>Growth Rate:</strong> 0.3 to 1 cm per year</li>
+                    <li><strong>Depth:</strong> 1 to 40 meters</li>
+                    <li><strong>Habitat:</strong> Upper reef slopes</li>
+                    <li><strong>Skeleton Type:</strong> Massive, bumpy mounds</li>
+                    <li><strong>Key Feature:</strong> Often forms wide "skirts" of tissue at its base to expand over
+                        neighboring rocks.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright Alexandre Coillot le Brun 2025</p>
+        <a href="../page/team.html">Nous contacter</a>
+    </footer>
+
+    <script>
+        function openNav() {
+            const nav = document.getElementById("myNav");
+            // Si le menu est ouvert, on le ferme. Sinon, on l'ouvre.
+            if (nav.style.height === "100%") {
+                nav.style.height = "0%";
+            } else {
+                nav.style.height = "100%";
+            }
+        }
+    </script>
+</body>
+
+</html>

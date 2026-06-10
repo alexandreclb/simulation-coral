@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Your Coral</title>
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+</head>
+
+<body class="body-exp">
+    <header>
+        <figure>
+            <a href="../index.html">
+                <img src="../img/logo.png" alt="Logo CFC" class="logo">
+            </a>
+        </figure>
+
+        <div class="burger" onclick="openNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="desktopNav">
+            <a href="../page/corail.html">The corals</a>
+            <a href="../page/recifs.html">Reefs of the world</a>
+            <a href="../page/structure.html">Our Structure</a>
+            <a href="../page/espece.html">Main Species</a>
+            <a href="../page/experience.html">Test Yours</a>
+            <a href="../page/team.html">About Us</a>
+        </nav>
+
+        <div id="myNav" class="overlay">
+            <div class="overlay-content">
+                <a href="../page/corail.html" onclick="openNav()">The corals</a>
+                <hr>
+                <a href="../page/recifs.html" onclick="openNav()">Reefs of the world</a>
+                <hr>
+                <a href="../page/structure.html" onclick="openNav()">Our Structure</a>
+                <hr>
+                <a href="../page/espece.html" onclick="openNav()">Main Species</a>
+                <hr>
+                <a href="../page/experience.html" onclick="openNav()">Test Yours</a>
+                <hr>
+                <a href="../page/team.html" onclick="openNav()">About Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+        <hr>
+        <div class="page">
+
+            <div class="title-exp">
+                <h1>Test <em>Your Coral</em></h1>
+                <p>Interactive coral ecosystem simulator</p>
+            </div>
+            <div class="card" id="quizCard">
+            </div>
+
+            <div id="simulatorContent" style="display: none; width: 100%; flex-direction: column; gap: 24px;">
+
+                <div class="card">
+                    <div class="coral-id">
+                        <span class="coral-id-label">Your coral</span>
+                        <span class="coral-id-badge">CORAL #1</span>
+                    </div>
+                    <div class="coral-wrap">
+                        <canvas id="coralMain" width="120" height="120"></canvas>
+                    </div>
+                    <div class="health-row">
+                        <span class="health-lbl">Coral health</span>
+                        <span class="health-num" id="hNum">100%</span>
+                    </div>
+                    <div class="bar-bg">
+                        <div class="bar-fill" id="hBar" style="width:100%"></div>
+                    </div>
+                    <span class="status-tag" id="sTag">Healthy coral</span>
+                    <div class="stress-row">
+                        <span class="stress-lbl">Stress level</span>
+                        <span class="stress-val" id="stVal">0.0</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <p class="timeline-title">5-year evolution</p>
+                    <div class="timeline">
+                        <div class="yr-col">
+                            <div class="yr-coral"><canvas id="yr0" width="52" height="52"></canvas></div>
+                            <div class="yr-health" id="yh0">—</div>
+                            <div class="yr-label">Now</div>
+                        </div>
+                        <div class="yr-col">
+                            <div class="yr-coral"><canvas id="yr1" width="52" height="52"></canvas></div>
+                            <div class="yr-health" id="yh1">—</div>
+                            <div class="yr-label">Year 1</div>
+                        </div>
+                        <div class="yr-col">
+                            <div class="yr-coral"><canvas id="yr2" width="52" height="52"></canvas></div>
+                            <div class="yr-health" id="yh2">—</div>
+                            <div class="yr-label">Year 2</div>
+                        </div>
+                        <div class="yr-col">
+                            <div class="yr-coral"><canvas id="yr3" width="52" height="52"></canvas></div>
+                            <div class="yr-health" id="yh3">—</div>
+                            <div class="yr-label">Year 3</div>
+                        </div>
+                        <div class="yr-col">
+                            <div class="yr-coral"><canvas id="yr4" width="52" height="52"></canvas></div>
+                            <div class="yr-health" id="yh4">—</div>
+                            <div class="yr-label">Year 4</div>
+                        </div>
+                        <div class="yr-col">
+                            <div class="yr-coral"><canvas id="yr5" width="52" height="52"></canvas></div>
+                            <div class="yr-health" id="yh5">—</div>
+                            <div class="yr-label">Year 5</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" id="paramsCard">
+                    <p class="params-title">Environmental parameters</p>
+
+                    <div class="attempts-row">
+                        <span class="attempts-lbl">Attempts remaining</span>
+                        <div class="attempts-dots">
+                            <div class="dot avail" id="d0"></div>
+                            <div class="dot avail" id="d1"></div>
+                            <div class="dot avail" id="d2"></div>
+                            <div class="dot avail" id="d3"></div>
+                            <div class="dot avail" id="d4"></div>
+                        </div>
+                    </div>
+
+                    <div class="param-block">
+                        <div class="param-header">
+                            <span class="param-name">Temperature</span>
+                            <span class="param-val"><span id="tV">20.0</span><span class="param-unit">°C</span></span>
+                        </div>
+                        <input type="range" id="tS" min="20" max="35" step="0.1" value="20">
+                        <div class="range-labels"><span>20°C</span><span>35°C</span></div>
+                    </div>
+
+                    <div class="param-block">
+                        <div class="param-header">
+                            <span class="param-name">pH</span>
+                            <span class="param-val"><span id="pV">6.50</span></span>
+                        </div>
+                        <input type="range" id="pS" min="6.5" max="9.0" step="0.05" value="6.5">
+                        <div class="range-labels"><span>6.5</span><span>9.0</span></div>
+                    </div>
+
+                    <div class="param-block">
+                        <div class="param-header">
+                            <span class="param-name">Light</span>
+                            <span class="param-val"><span id="lV">0</span><span class="param-unit">%</span></span>
+                        </div>
+                        <input type="range" id="lS" min="0" max="100" step="1" value="0">
+                        <div class="range-labels"><span>0%</span><span>100%</span></div>
+                    </div>
+
+                    <div class="param-block">
+                        <div class="param-header">
+                            <span class="param-name">Salinity</span>
+                            <span class="param-val"><span id="sV">30.0</span><span class="param-unit">g/L</span></span>
+                        </div>
+                        <input type="range" id="ssS" min="30" max="40" step="0.5" value="30">
+                        <div class="range-labels"><span>30 g/L</span><span>40 g/L</span></div>
+                    </div>
+
+                    <div class="hint-box" id="hintBox">
+                        <div class="hint-label">&#9670; Did you know?</div>
+                        <div class="hint-text" id="hintText"></div>
+                    </div>
+
+                    <button class="btn" id="btnU">Test my coral</button>
+                </div>
+
+                <div class="card blocked-card" id="blockedCard" style="display: none;">
+                    <p class="blocked-title">All 5 attempts used</p>
+                    <p class="blocked-sub">Here are the optimal parameters<br>for a healthy coral reef.</p>
+                    <div class="answer-grid">
+                        <div class="answer-item">
+                            <div class="answer-param">Temperature</div>
+                            <div class="answer-val">26 – 28 °C</div>
+                        </div>
+                        <div class="answer-item">
+                            <div class="answer-param">pH</div>
+                            <div class="answer-val">8.0 – 8.4</div>
+                        </div>
+                        <div class="answer-item">
+                            <div class="answer-param">Light</div>
+                            <div class="answer-val">60 – 85 %</div>
+                        </div>
+                        <div class="answer-item">
+                            <div class="answer-param">Salinity</div>
+                            <div class="answer-val">~35 g/L</div>
+                        </div>
+                    </div>
+                    <button class="btn" class="btn-reset" id="btnReset">&#8635; Try again</button>
+                </div>
+
+                <div class="card blocked-card" id="successCard" style="display: none;">
+                    <p class="blocked-title" style="color:#00cfff;">&#10003; Perfect coral!</p>
+                    <p class="blocked-sub" id="successSub">You found the ideal parameters.<br>Your coral is in perfect
+                        health.</p>
+                    <div class="answer-grid">
+                        <div class="answer-item">
+                            <div class="answer-param">Temperature</div>
+                            <div class="answer-val">26 – 28 °C</div>
+                        </div>
+                        <div class="answer-item">
+                            <div class="answer-param">pH</div>
+                            <div class="answer-val">8.0 – 8.4</div>
+                        </div>
+                        <div class="answer-item">
+                            <div class="answer-param">Light</div>
+                            <div class="answer-val">60 – 85 %</div>
+                        </div>
+                        <div class="answer-item">
+                            <div class="answer-param">Salinity</div>
+                            <div class="answer-val">~35 g/L</div>
+                        </div>
+                    </div>
+                    <button class="btn" class="btn-reset" id="btnReset2">&#8635; Play again</button>
+                </div>
+
+                <div class="card">
+                    <p class="params-title">Colour guide</p>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background:#00cfff;box-shadow:0 0 8px #00cfff"></div><span
+                                class="legend-text"><b>Cyan blue</b> — Health &gt; 75% · Healthy coral</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background:#6b8eff;box-shadow:0 0 8px #6b8eff"></div><span
+                                class="legend-text"><b>Blue-violet</b> — Health 50–75% · Moderate stress</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background:#c8c8ff;box-shadow:0 0 8px #c8c8ff"></div><span
+                                class="legend-text"><b>White-blue</b> — Health 25–50% · Bleaching</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background:#eee;box-shadow:0 0 6px #fff4"></div><span
+                                class="legend-text"><b>Pure white</b> — Health &lt; 25% · Coral in danger</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="toast" id="toast">Coral tested!</div>
+
+        <script>
+            /*             // 1. On récupère les paramètres dans l'URL (ex: ?coral=3)
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const coralID = urlParams.get('coral') || "1"; // Par défaut, corail 1 si aucun paramètre
+            
+                        console.log("L'utilisateur contrôle actuellement le Corail numéro :", coralID);
+            
+                        // Vous pouvez même afficher dynamiquement le numéro sur la page pour l'utilisateur :
+                        // document.getElementById('coralTitle').textContent = "Test my coral n°" + coralID; */
+            // ══════════════════════════════════════════
+            // CONFIGURATION ET LOGIQUE DU QUIZ ÉCOLOGIQUE
+            // ══════════════════════════════════════════
+            var quizQuestions = [
+                {
+                    q: "Where do you throw your cigarette butt?",
+                    options: [
+                        { text: "Generally in the bin, but if not, I'll just throw it away", penalty: 15 },
+                        { text: "Always in a bin, and if there isn't one, I'll keep it in my pocket", penalty: 2 },
+                        { text: "I don't smoke", penalty: 0 }
+                    ]
+                },
+                {
+                    q: "When getting takeout from a restaurant...",
+                    options: [
+                        { text: "I always bring my own Tupperware or reusable bottle", penalty: 0 },
+                        { text: "I just order normally with the restaurant's plastic packaging", penalty: 12 },
+                        { text: "I never order takeout", penalty: 0 },
+                        { text: "I refuse plastic bags or cutlery that aren't necessary", penalty: 4 }
+                    ]
+                },
+                {
+                    q: "What kind of vacation appeals to you the most?",
+                    options: [
+                        { text: "A cruise in the Bahamas", penalty: 18 },
+                        { text: "A road trip across Europe", penalty: 8 },
+                        { text: "A relaxing vacation visiting family in France", penalty: 0 }
+                    ]
+                },
+                {
+                    q: "During your shower...",
+                    options: [
+                        { text: "I blast the music and enjoy a long, relaxing shower", penalty: 6 },
+                        { text: "I take a quick and efficient shower", penalty: 0 },
+                        { text: "It depends on my mood", penalty: 3 }
+                    ]
+                },
+                {
+                    q: "To get around Shanghai:",
+                    options: [
+                        { text: "You use the cheap and efficient metro", penalty: 0 },
+                        { text: "You go everywhere by bike", penalty: 0 },
+                        { text: "You always take a Didi (ride-share) because it's easier, even if it's expensive", penalty: 6 }
+                    ]
+                }
+            ];
+
+            var currentQuestionIndex = 0;
+            var quizPenalty = 0;
+
+            function renderQuizQuestion() {
+                var quizCard = document.getElementById('quizCard');
+                if (currentQuestionIndex >= quizQuestions.length) {
+                    endQuiz();
+                    return;
+                }
+                var currentQ = quizQuestions[currentQuestionIndex];
+                var html = '<p class="params-title">Profil Écologique (' + (currentQuestionIndex + 1) + '/' + quizQuestions.length + ')</p>';
+                html += '<p class="quiz-question">' + currentQ.q + '</p>';
+                html += '<div class="quiz-options">';
+                currentQ.options.forEach(function (opt, index) {
+                    html += '<button class="quiz-opt-btn" onclick="handleQuizAnswer(' + opt.penalty + ')">' + opt.text + '</button>';
+                });
+                html += '</div>';
+                quizCard.innerHTML = html;
+            }
+
+            function handleQuizAnswer(penalty) {
+                quizPenalty += penalty;
+                currentQuestionIndex++;
+                renderQuizQuestion();
+            }
+
+            function endQuiz() {
+                document.getElementById('quizCard').style.display = 'none';
+                var simContent = document.getElementById('simulatorContent');
+                simContent.style.display = 'flex';
+
+                var startingHealth = Math.max(0, 100 - quizPenalty);
+                updateUI(startingHealth, 0, null);
+            }
+
+            // ══════════════════════════════════════════
+            // HINTS — one per param × direction
+            // Based on real coral science
+            // ══════════════════════════════════════════
+            var HINTS = {
+                temp_low: {
+                    param: 'Temperature',
+                    text: 'Corals are tropical organisms. They depend on warm water for their symbiotic algae (zooxanthellae) to photosynthesize and produce the energy corals need to survive.'
+                },
+                temp_high: {
+                    param: 'Temperature',
+                    text: 'Even a slight rise above normal sea temperature is enough to trigger coral bleaching. Since the 1980s, mass bleaching events have become far more frequent worldwide.'
+                },
+                ph_low: {
+                    param: 'pH',
+                    text: 'Ocean acidification caused by CO₂ absorption has been lowering average ocean pH since the industrial era. Corals rely on alkaline water to build their calcium carbonate skeletons. As the water becomes more acidic, their structures weaken and growth slows.'
+                },
+                ph_high: {
+                    param: 'pH',
+                    text: 'Seawater that is too alkaline disrupts the chemical balance corals need for calcification. A stable, slightly alkaline pH is essential for the entire reef ecosystem to thrive.'
+                },
+                light_low: {
+                    param: 'Light',
+                    text: 'Zooxanthellae, the microscopic algae living inside coral tissues, need sunlight to photosynthesize. Without enough light, they cannot produce energy, and the coral slowly starves.'
+                },
+                light_high: {
+                    param: 'Light',
+                    text: 'Excessive light, especially combined with high temperature, increases oxidative stress in corals. This accelerates the expulsion of zooxanthellae — the first visible step of bleaching.'
+                },
+                sal_low: {
+                    param: 'Salinity',
+                    text: 'Heavy rainfall or freshwater runoff can dilute seawater around reefs. Corals evolved in stable saline environments and struggle to regulate their cells when salinity drops sharply.'
+                },
+                sal_high: {
+                    param: 'Salinity',
+                    text: 'High salinity forces corals to expend extra energy on osmoregulation — energy they cannot spend on growth or reproduction. This leaves them weakened and more vulnerable to disease.'
+                }
+            };
+
+            // ══════════════════════════════════════════
+            // ATTEMPTS
+            // ══════════════════════════════════════════
+            var MAX_ATTEMPTS = 5;
+            var attemptsUsed = 0;
+
+            function updateDots() {
+                for (var i = 0; i < 5; i++) {
+                    document.getElementById('d' + i).className = 'dot ' + (i < attemptsUsed ? 'used' : 'avail');
+                }
+            }
+
+            function showBlocked() {
+                document.getElementById('paramsCard').style.display = 'none';
+                document.getElementById('successCard').style.display = 'none';
+                document.getElementById('blockedCard').style.display = 'block';
+            }
+
+            function showSuccess() {
+                document.getElementById('paramsCard').style.display = 'none';
+                document.getElementById('blockedCard').style.display = 'none';
+                document.getElementById('successCard').style.display = 'block';
+
+                var successSub = document.getElementById('successSub');
+
+                // Correction du nom de la variable (quizPenalty au lieu de totalQuizPenalty)
+                if (quizPenalty > 0) {
+                    successSub.innerHTML = "You found the ideal parameters but your actions made a negative impact on your coral.";
+                    successSub.style.color = "#ff7c50"; // Met le texte en orange d'alerte
+                } else {
+                    successSub.innerHTML = "You found the ideal parameters.<br>Your coral is in perfect health.";
+                    successSub.style.color = ""; // Couleur normale
+                }
+            }
+            // ══════════════════════════════════════════
+            // WORST PARAM HINT — always on highest penalty
+            // ══════════════════════════════════════════
+            function showWorstHint(t, ph, l, s) {
+                var penalties = [
+                    { key: t > 28 ? 'temp_high' : 'temp_low', val: t > 28 ? (t - 28) * 8 : (26 - t) * 3 },
+                    { key: ph > 8.4 ? 'ph_high' : 'ph_low', val: ph > 8.4 ? (ph - 8.4) * 6 : (8 - ph) * 12 },
+                    { key: l > 85 ? 'light_high' : 'light_low', val: l > 85 ? (l - 85) * 0.7 : (60 - l) * 1.5 },
+                    { key: s > 38 ? 'sal_high' : 'sal_low', val: Math.abs(s - 35) * 2 }
+                ];
+
+                var total = penalties.reduce(function (sum, x) { return sum + x.val; }, 0);
+                var hintBox = document.getElementById('hintBox');
+                var hintText = document.getElementById('hintText');
+
+                if (total === 0) { hintBox.classList.remove('show'); return; }
+
+                penalties.sort(function (a, b) { return b.val - a.val; });
+                var hint = HINTS[penalties[0].key];
+                hintText.innerHTML = '<span class="hint-param">' + hint.param + '</span> — ' + hint.text;
+                hintBox.classList.add('show');
+            }
+
+            // ══════════════════════════════════════════
+            // CORAL DRAWING
+            // ══════════════════════════════════════════
+            function drawCoral(canvas, health) {
+                var ctx = canvas.getContext('2d');
+                var w = canvas.width, h = canvas.height;
+                ctx.clearRect(0, 0, w, h);
+                var t = Math.max(0, Math.min(1, health / 100));
+                function lerp(a, b, t) { return Math.round(a + (b - a) * t); }
+                function lc(r1, g1, b1, r2, g2, b2, t) { return 'rgb(' + lerp(r1, r2, t) + ',' + lerp(g1, g2, t) + ',' + lerp(b1, b2, t) + ')'; }
+                var coralCol = lc(255, 255, 255, 255, 120, 60, t);
+                var tipCol = lc(255, 255, 255, 80, 200, 255, t);
+                var stemCol = lc(210, 210, 215, 180, 90, 40, t);
+                var cx = w / 2, base = h - 6, scale = w / 120;
+                ctx.save();
+                ctx.translate(cx, base);
+                ctx.scale(scale, scale);
+                if (health > 8) {
+                    var g = ctx.createRadialGradient(0, -5, 1, 0, -5, 36);
+                    g.addColorStop(0, 'rgba(0,207,255,' + (t * 0.45) + ')');
+                    g.addColorStop(1, 'rgba(0,207,255,0)');
+                    ctx.fillStyle = g;
+                    ctx.beginPath(); ctx.ellipse(0, -4, 36, 16, 0, 0, Math.PI * 2); ctx.fill();
+                }
+                function branch(x, y, angle, len, width, depth) {
+                    if (depth === 0 || len < 2.5) return;
+                    ctx.strokeStyle = depth > 1 ? stemCol : coralCol;
+                    ctx.lineWidth = width; ctx.lineCap = 'round';
+                    ctx.beginPath(); ctx.moveTo(x, y);
+                    var ex = x + Math.cos(angle) * len, ey = y - Math.sin(angle) * len;
+                    ctx.lineTo(ex, ey); ctx.stroke();
+                    if (depth === 1) {
+                        ctx.fillStyle = tipCol; ctx.shadowColor = tipCol; ctx.shadowBlur = health > 50 ? 7 : 2;
+                        ctx.beginPath(); ctx.arc(ex, ey, width * 1.5, 0, Math.PI * 2); ctx.fill(); ctx.shadowBlur = 0;
+                    }
+                    branch(ex, ey, angle + 0.45, len * 0.68, width * 0.65, depth - 1);
+                    branch(ex, ey, angle - 0.45, len * 0.68, width * 0.65, depth - 1);
+                    if (depth > 2) branch(ex, ey, angle, len * 0.72, width * 0.6, depth - 1);
+                }
+                branch(0, 0, Math.PI / 2, 30, 4.5, 4);
+                branch(-14, -8, Math.PI / 2 + 0.30, 22, 3.0, 3);
+                branch(14, -8, Math.PI / 2 - 0.30, 22, 3.0, 3);
+                branch(-6, -18, Math.PI / 2 + 0.15, 16, 2.0, 3);
+                branch(6, -18, Math.PI / 2 - 0.15, 16, 2.0, 3);
+                ctx.fillStyle = lc(75, 75, 95, 55, 38, 18, t);
+                ctx.beginPath(); ctx.ellipse(-18, 2, 10, 4, -0.2, 0, Math.PI * 2); ctx.fill();
+                ctx.beginPath(); ctx.ellipse(16, 3, 8, 3, 0.3, 0, Math.PI * 2); ctx.fill();
+                ctx.beginPath(); ctx.ellipse(0, 4, 14, 4, 0, 0, Math.PI * 2); ctx.fill();
+                ctx.restore();
+            }
+
+            // ══════════════════════════════════════════
+            // FORMULAS (MODIFIÉES POUR LE QUIZ)
+            // ══════════════════════════════════════════
+            function computeHealth(t, ph, l, s) {
+                var h = 100 - quizPenalty; // On déduit la pénalité accumulée lors du quiz
+                if (t > 28) h -= (t - 28) * 8; else if (t < 26) h -= (26 - t) * 3;
+                if (ph < 8) h -= (8 - ph) * 12; else if (ph > 8.4) h -= (ph - 8.4) * 6;
+                if (l < 60) h -= (60 - l) * 1.5; else if (l > 85) h -= (l - 85) * 0.7;
+                h -= Math.abs(s - 35) * 2;
+                return Math.max(0, Math.min(100, h));
+            }
+            function computeStress(t, ph, l, s) {
+                var st = 0;
+                if (t < 23) st += (23 - t) * 1; else if (t > 30) st += (t - 30) * 2;
+                if (ph < 7.8) st += (7.8 - ph) * 5; else if (ph > 8.6) st += (ph - 8.6) * 3;
+                if (l < 60) st += (60 - l) * 1.25; else if (l > 85) st += (l - 85) * 0.3;
+                if (s < 33) st += (33 - s) * 0.5; else if (s > 38) st += (s - 38) * 0.5;
+                return st;
+            }
+            function healthForYear(base, stress, year) {
+                var h = base;
+                for (var y = 0; y < year; y++)h -= stress * 0.6;
+                return Math.max(0, Math.min(100, h));
+            }
+            function getColor(h) {
+                if (h > 75) return { hex: '#00cfff', label: 'Healthy coral', tb: '#00cfff15', tc: '#00cfff' };
+                if (h > 50) return { hex: '#6b8eff', label: 'Moderate stress', tb: '#6b8eff15', tc: '#6b8eff' };
+                if (h > 25) return { hex: '#c8c8ff', label: 'Bleaching', tb: '#c8c8ff15', tc: '#c8c8ff' };
+                return { hex: '#fff', label: 'Coral in danger', tb: '#ffffff10', tc: '#aaa' };
+            }
+
+            // ══════════════════════════════════════════
+            // UI UPDATE
+            // ══════════════════════════════════════════
+            function updateUI(h, st, years) {
+                var c = getColor(h);
+                var hNum = document.getElementById('hNum');
+                var hBar = document.getElementById('hBar');
+                var sTag = document.getElementById('sTag');
+                var stVal = document.getElementById('stVal');
+                hNum.textContent = Math.round(h) + '%'; hNum.style.color = c.hex;
+                hBar.style.width = h + '%';
+                hBar.style.background = 'linear-gradient(90deg,#005f8a,' + c.hex + ')';
+                hBar.style.boxShadow = '0 0 10px ' + c.hex + '70';
+                sTag.textContent = c.label; sTag.style.background = c.tb; sTag.style.color = c.tc; sTag.style.border = '1px solid ' + c.tc + '30';
+                stVal.textContent = st.toFixed(1);
+                stVal.style.color = st < 5 ? '#5a8aaa' : st < 15 ? '#ffaa50' : '#ff7c50';
+                drawCoral(document.getElementById('coralMain'), h);
+                for (var y = 0; y <= 5; y++) {
+                    var yh = years ? years[y] : healthForYear(h, st, y);
+                    var cv = document.getElementById('yr' + y);
+                    var yl = document.getElementById('yh' + y);
+                    if (cv) drawCoral(cv, yh);
+                    if (yl) yl.textContent = Math.round(yh) + '%';
+                }
+            }
+
+            // ══════════════════════════════════════════
+            // SLIDERS
+            // ══════════════════════════════════════════
+            var tS = document.getElementById('tS');
+            var pS = document.getElementById('pS');
+            var lS = document.getElementById('lS');
+            var ssS = document.getElementById('ssS');
+            tS.addEventListener('input', function () { document.getElementById('tV').textContent = parseFloat(this.value).toFixed(1); });
+            pS.addEventListener('input', function () { document.getElementById('pV').textContent = parseFloat(this.value).toFixed(2); });
+            lS.addEventListener('input', function () { document.getElementById('lV').textContent = this.value; });
+            ssS.addEventListener('input', function () { document.getElementById('sV').textContent = parseFloat(this.value).toFixed(1); });
+
+            // ══════════════════════════════════════════
+            // BUTTON
+            // ══════════════════════════════════════════
+            document.getElementById('btnU').addEventListener('click', function () {
+                if (attemptsUsed >= MAX_ATTEMPTS) return;
+
+                var t = parseFloat(tS.value);
+                var p = parseFloat(pS.value);
+                var l = parseFloat(lS.value);
+                var s = parseFloat(ssS.value);
+                var h = computeHealth(t, p, l, s);
+                var st = computeStress(t, p, l, s);
+
+                updateUI(h, st, null);
+                attemptsUsed++;
+                updateDots();
+
+                var toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(function () { toast.classList.remove('show'); }, 2200);
+
+                // On vérifie si les curseurs sont dans les zones parfaites
+                var isPerfectEnv = (t >= 26 && t <= 28 && p >= 8.0 && p <= 8.4 && l >= 60 && l <= 85 && s === 35);
+
+                if (isPerfectEnv) {
+                    document.getElementById('hintBox').classList.remove('show');
+                    setTimeout(function () { showSuccess(); }, 800);
+                    return;
+                }
+
+                showWorstHint(t, p, l, s);
+
+                if (attemptsUsed >= MAX_ATTEMPTS) {
+                    setTimeout(function () { showBlocked(); }, 1800);
+                }
+            });
+
+            // ══════════════════════════════════════════
+            // RESET & INIT
+            // ══════════════════════════════════════════
+            function doReset() {
+                attemptsUsed = 0;
+                updateDots();
+                document.getElementById('paramsCard').style.display = 'block';
+                document.getElementById('blockedCard').style.display = 'none';
+                document.getElementById('successCard').style.display = 'none';
+                tS.value = 20; document.getElementById('tV').textContent = '20.0';
+                pS.value = 6.5; document.getElementById('pV').textContent = '6.50';
+                lS.value = 0; document.getElementById('lV').textContent = '0';
+                ssS.value = 30; document.getElementById('sV').textContent = '30.0';
+                document.getElementById('hintBox').classList.remove('show');
+
+                // Reset de la logique du questionnaire
+                currentQuestionIndex = 0;
+                quizPenalty = 0;
+                document.getElementById('quizCard').style.display = 'block';
+                document.getElementById('simulatorContent').style.display = 'none';
+                renderQuizQuestion();
+            }
+
+            document.getElementById('btnReset').addEventListener('click', doReset);
+            document.getElementById('btnReset2').addEventListener('click', doReset);
+            document.getElementById('blockedCard').style.display = 'none';
+            document.getElementById('successCard').style.display = 'none';
+            document.getElementById('paramsCard').style.display = 'block';
+            // Lancement au chargement
+            updateDots();
+            updateUI(100, 0, null);
+            renderQuizQuestion();
+            function openNav() {
+                const nav = document.getElementById("myNav");
+                // Si le menu est ouvert, on le ferme. Sinon, on l'ouvre.
+                if (nav.style.height === "100%") {
+                    nav.style.height = "0%";
+                } else {
+                    nav.style.height = "100%";
+                }
+            }
+        </script>
+</body>
+
+</html>

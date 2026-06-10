@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page faune présentant les especes que l'on trouve en tunisie">
+    <meta name="author" content="Alexandre Coillot le Brun">
+    <meta name="keywords" content="tunisia, faune">
+
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo.png"><!-- favicon -->
+    <title>Corals</title>
+</head>
+
+<body>
+    <header>
+        <figure>
+            <a href="../index.html">
+                <img src="../img/logo.png" alt="Logo CFC" class="logo">
+            </a>
+        </figure>
+
+        <div class="burger" onclick="openNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="desktopNav">
+            <a href="../page/corail.html">The corals</a>
+            <a href="../page/recifs.html">Reefs of the world</a>
+            <a href="../page/structure.html">Our Structure</a>
+            <a href="../page/espece.html">Main Species</a>
+            <a href="../page/experience.html">Test Yours</a>
+            <a href="../page/team.html">About Us</a>
+        </nav>
+
+        <div id="myNav" class="overlay">
+            <div class="overlay-content">
+                <a href="../page/corail.html" onclick="openNav()">The corals</a>
+                <hr>
+                <a href="../page/recifs.html" onclick="openNav()">Reefs of the world</a>
+                <hr>
+                <a href="../page/structure.html" onclick="openNav()">Our Structure</a>
+                <hr>
+                <a href="../page/espece.html" onclick="openNav()">Main Species</a>
+                <hr>
+                <a href="../page/experience.html" onclick="openNav()">Test Yours</a>
+                <hr>
+                <a href="../page/team.html" onclick="openNav()">About Us</a>
+            </div>
+        </div>
+    </header>
+    <main class="coral-page">
+        <section class="coral-hero">
+            <div class="taillemax">
+                <h1>Understanding Corals</h1>
+                <h2>Architects of the oceans and guardians of the Reefs and coasts.</h2>
+            </div>
+        </section>
+
+
+        <section class="taillemax section-padding">
+            <div class="flex-container">
+                <div class="text-block">
+                    <h2 class="titre2corail">The Biological Engine: Symbiosis</h2>
+                    <p>The coral is a complex animal living in a vital <strong>symbiosis with zooxanthellae</strong>
+                        (microscopic algae). These algae reside directly within the coral's tissues and provide up to
+                        <strong>90% of its energy needs</strong> (sugars and carbohydrates) via photosynthesis.
+                    </p>
+                    <p>In exchange, the polyp provides a protected environment and the compounds necessary for
+                        photosynthesis. This energy surplus allows the polyp to secrete calcium carbonate, the building
+                        block of the massive reef structures found in Belize.</p>
+                    <div class="stats-box">
+                        <h4><strong>SURVIVAL PARAMETERS:</strong></h4>
+                        <ul>
+                            <li>Temperature: 23°C - 29°C</li>
+                            <li>Salinity: 34 - 37g of salt/kg</li>
+                            <li>High solar irradiance for photosynthesis</li>
+                            <li>PH: 8.1 - 8.3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="image-block">
+
+                    <img src="../img/symbiose.png" alt="Coral Symbiosis">
+                </div>
+            </div>
+        </section>
+
+        <section class="taillemax section-padding">
+            <div class="flex-container reverse">
+                <div class="text-block">
+                    <h2 class="titre2corail">Biodiversity and Ecosystem Foundations</h2>
+                    <p>Often called the "rainforests of the sea," reefs host <strong>25% of all marine
+                            life</strong>—over a million species—despite occupying less than 0.2% of the ocean floor.
+                        They serve as essential nurseries and reproduction zones, offering protection against predators.
+                    </p>
+                    <p><strong>The Sand Cycle:</strong> Reefs are also geological architects. The grazing of coral by
+                        parrotfish schools produces massive amounts of sand. Ocean currents then transport this sand to
+                        form shallows, islands, and the foundations for <strong>mangroves and coastal forests</strong>.
+                    </p>
+                </div>
+                <div class="image-block">
+
+                    <img src="../img/poi-perroquet.png" alt="Marine Life">
+                </div>
+            </div>
+        </section>
+
+        <section class="impact-section">
+            <div class="taillemax">
+                <h2 style="text-align: center; color: white; margin-bottom: 3rem;">Ecosystem Services and Economics</h2>
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <h3>Coastal Protection</h3>
+                        <p>Reefs act as natural breakwaters along 150,000 km of coastline. They absorb <strong>97% of
+                                wave energy</strong> (66% specifically in some Pacific areas), preventing erosion and
+                            protecting human infrastructure from hurricanes and tsunamis.</p>
+                    </div>
+                    <div class="impact-card">
+                        <h3>Food Security</h3>
+                        <p>500 million people depend on reefs. They provide <strong>10% of global fish catch</strong>,
+                            reaching 70-90% in Southeast Asia. A well-managed reef can yield 5 to 15 tons of seafood per
+                            km² annually.</p>
+                    </div>
+                    <div class="impact-card">
+                        <h3>Global Economy</h3>
+                        <p>Estimated net annual benefit: <strong>$29.8 billion</strong>. This includes $9.6B in tourism,
+                            $9B in coastal protection, and $5.7B in fisheries. In many islands, 90% of economic
+                            development relies on reef tourism.</p>
+                    </div>
+                    <div class="impact-card">
+                        <h3>Medical Frontier</h3>
+                        <p>Corals share <strong>48% of their genome with humans</strong>. Their chemical defense arsenal
+                            is being used to research treatments for <strong>cancer, Alzheimer's, and HIV</strong>.
+                            Their skeleton has been used for bone grafts since 1970.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="taillemax section-padding">
+            <div class="flex-container">
+                <div class="text-block">
+                    <h2 class="titre2corail">Climate Regulation and The Bleaching Crisis</h2>
+                    <p>Reefs act as <strong>carbon sinks</strong>, absorbing significant amounts of CO2. However, they
+                        are victims of their own environment. Rising temperatures (GHG emissions) and ocean
+                        acidification stress the polyps, causing them to expel their zooxanthellae.</p>
+                    <p>This <strong>bleaching</strong> leaves the white calcium skeleton exposed. Without the algae's
+                        energy, the coral starves. 14% of corals vanished between 2009 and 2018, and <strong>90% could
+                            disappear by 2050</strong>.</p>
+                </div>
+                <div class="image-block">
+
+                    <img src="../img/blanchiement-etape.jpeg" alt="Bleached Coral">
+                </div>
+            </div>
+        </section>
+
+        <section class="conservation-section section-padding">
+            <div class="taillemax">
+                <h2 class="titre2corail">Innovative Conservation Strategies</h2>
+                <div class="impact-grid">
+                    <div class="text-card">
+                        <h4>Assisted Restoration</h4>
+                        <p>Micro-fragmentation (pioneered by David Vaughan) allows corals to regenerate <strong>25 to 40
+                                times faster</strong> than in nature. Nurseries use metallic "trees" to grow fragments
+                            before replanting them.</p>
+                    </div>
+                    <div class="text-card">
+                        <h4>Assisted Evolution</h4>
+                        <p>Scientists collect gametes from "super-corals" that survived heatwaves to create cross-bred
+                            species more resistant to warming. Laboratory fertilization increases survival rates from 1
+                            in a million to significantly higher yields.</p>
+                    </div>
+                    <div class="text-card">
+                        <h4>Substrate Innovation</h4>
+                        <p>Testing complex artificial materials with high relief to encourage polyp attachment in
+                            devastated areas, combined with manual algae removal to clear space for "baby" corals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        function openNav() {
+            const nav = document.getElementById("myNav");
+            // Si le menu est ouvert, on le ferme. Sinon, on l'ouvre.
+            if (nav.style.height === "100%") {
+                nav.style.height = "0%";
+            } else {
+                nav.style.height = "100%";
+            }
+        }
+    </script>
+</body>
+
+</html>

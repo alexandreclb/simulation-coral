@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Alexandre Coillot le Brun">
+    <meta name="keywords" content="">
+
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo.png" class="logo">
+    <title>Species</title>
+</head>
+
+<body>
+    <header>
+        <figure>
+            <a href="../index.html">
+                <img src="../img/logo.png" alt="Logo CFC" class="logo">
+            </a>
+        </figure>
+
+        <div class="burger" onclick="openNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="desktopNav">
+            <a href="../page/corail.html">The corals</a>
+            <a href="../page/recifs.html">Reefs of the world</a>
+            <a href="../page/structure.html">Our Structure</a>
+            <a href="../page/espece.html">Main Species</a>
+            <a href="../page/experience.html">Test Yours</a>
+            <a href="../page/team.html">About Us</a>
+        </nav>
+
+        <div id="myNav" class="overlay">
+            <div class="overlay-content">
+                <a href="../page/corail.html" onclick="openNav()">The corals</a>
+                <hr>
+                <a href="../page/recifs.html" onclick="openNav()">Reefs of the world</a>
+                <hr>
+                <a href="../page/structure.html" onclick="openNav()">Our Structure</a>
+                <hr>
+                <a href="../page/espece.html" onclick="openNav()">Main Species</a>
+                <hr>
+                <a href="../page/experience.html" onclick="openNav()">Test Yours</a>
+                <hr>
+                <a href="../page/team.html" onclick="openNav()">About Us</a>
+            </div>
+        </div>
+    </header>
+    <main class="reefs-container">
+        <section class="map-container"> <!-- partie carte interactive -->
+            <img src="../img/carte-fond.png" alt="World Map" class="map-image">
+
+            <div class="map-point status-critical" style="top:73% ; left:86% ;">
+                <div class="tooltip">
+                    <a href="#grande-barriere">
+                        <img src="../img/barriereAus.jpg" alt="Great Barrier Reef">
+                        <h3>Great Barrier Reef</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="map-point status-stable" style="top:57% ; left:79% ;">
+                <div class="tooltip">
+                    <a href="#tubbataha">
+                        <img src="../img/tubbataha.jpeg" alt="Tubbataha Reefs">
+                        <h3>Tubbataha Reefs</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="map-point status-stable" style="top:52% ; left:58% ;">
+                <div class="tooltip">
+                    <a href="#mer-rouge">
+                        <img src="../img/mer-rouge.jpg" alt="Red Sea Reefs">
+                        <h3>The Red Sea Reefs</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="map-point status-vulnerable" style="top:55% ; left:26.5% ;">
+                <div class="tooltip">
+                    <a href="#belize">
+                        <img src="../img/belize.jpeg" alt="Belize Barrier Reef">
+                        <h3>Belize Barrier Reef</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="map-point status-critical" style="top:48% ; left:80.5% ;">
+                <div class="tooltip">
+                    <a href="#okinawa">
+                        <img src="../img/okinawa.jpg" alt="Okinawa Reefs">
+                        <h3>Okinawa Reefs</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="map-point status-mutation" style="top:65% ; left:65% ;">
+                <div class="tooltip">
+                    <a href="#chagos">
+                        <img src="../img/chagos.jpg" alt="Chagos Archipelago">
+                        <h3>Chagos Archipelago</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="grande-barriere" class="reef-section section-padding status-critical taillemax">
+            <div class="reef-content">
+                <div class="reef-header">
+                    <span class="badge-status">Status: Critical</span>
+                    <h2>1. The Great Barrier Reef <span class="country">(Australia)</span></h2>
+                </div>
+
+                <div class="flex-container">
+                    <div class="text-block">
+                        <h3>Key Features and Key Challenges</h3>
+                        <p>It is the largest living organism on the planet. A massive 2,300-kilometer-long structure, so
+                            gigantic that it is visible from space. It serves as a global benchmark for large-scale
+                            scientific observation. However, it faces successive marine heatwaves driven by global
+                            climate change, which trigger mass bleaching events that occur too frequently for the coral
+                            to recover.</p>
+
+                        <h3>Impacts and Solutions</h3>
+                        <p>This causes a colossal loss of marine biodiversity on an ocean scale and deals a heavy blow
+                            to the Australian tourism economy, which directly depends on the beauty of its seabed. In
+                            response to this emergency, researchers are deploying artificial intelligence and fleets of
+                            underwater drones (LarvalBot) to map the damage. This is also where Cloud Brightening is
+                            being tested : a technology that sprays salt water micro-droplets to whiten clouds and
+                            create
+                            shade over the water.</p>
+                    </div>
+
+                    <div class="image-block">
+                        <div class="stat-card">
+                            <span class="stat-number">90%</span>
+                            <span class="stat-label">of monitored corals showed signs of stress and discoloration during
+                                recent thermal crises.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tubbataha" class="reef-section section-padding status-excellent taillemax">
+            <div class="reef-content">
+                <div class="reef-header">
+                    <span class="badge-status">Status: Excellent (Refuge Zone)</span>
+                    <h2>2. Tubbataha Reefs <span class="country">(Philippines)</span></h2>
+                </div>
+
+                <div class="flex-container reverse">
+                    <div class="text-block">
+                        <h3>Key Features and Key Challenges</h3>
+                        <p>This is one of the very few models of hope and total resilience on the planet. A site proving
+                            that an entirely devastated ecosystem can come back to life if humans step away radically.
+                            Historically, this paradise was destroyed by intensive blast and cyanide fishing during the
+                            1980s. Today, the major challenge remains maintaining absolute security against poaching.
+                        </p>
+
+                        <h3>Impacts and Solutions</h3>
+                        <p>The site generates an ultra-positive economic impact through the "Spillover" effect: fish
+                            reproduce so successfully inside this forbidden area that populations naturally "overflow"
+                            outside, sustainably enriching the artisanal fishing grounds of the surrounding Philippine
+                            communities. The solution has been a complete militarization of the site. Listed as a UNESCO
+                            World Heritage site, these 100,000 hectares of marine park are guarded 24/7 by armed rangers
+                            from the Philippine Navy who live on an isolated structure in the middle of the ocean.</p>
+                    </div>
+
+                    <div class="image-block">
+                        <div class="stat-card">
+                            <span class="stat-number">0%</span>
+                            <span class="stat-label">human activity or fishing allowed in the heart of the sanctuary. A
+                                political zero-tolerance policy that saved everything.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mer-rouge" class="reef-section section-padding status-stable taillemax">
+            <div class="reef-content">
+                <div class="reef-header">
+                    <span class="badge-status">Status: Stable / Resilient</span>
+                    <h2>3. The Red Sea Reefs <span class="country">(Egypt)</span></h2>
+                </div>
+
+                <div class="flex-container">
+                    <div class="text-block">
+                        <h3>Key Features and Key Challenges</h3>
+                        <p>The refuge of the "Super-Corals." This reef possesses a unique genetic signature inherited
+                            from the last ice age, allowing its species to tolerate temperatures that would be fatal to
+                            any other coral on the globe. However, its main challenges remain local: massive overtourism
+                            along the Egyptian coastlines, pollution from hotel infrastructure, and physical damage
+                            caused by divers and boat anchors.</p>
+
+                        <h3>Impacts and Solutions</h3>
+                        <p>This location could serve as the Noah's Ark of the oceans. If corals die out elsewhere, the
+                            Red Sea will hold the ultimate genetic keys to the survival of these ecosystems.
+                            International laboratories (including EPFL in Switzerland) are currently mapping the DNA of
+                            these specimens. The goal is to practice assisted evolution: utilizing these ultra-resilient
+                            strains to crossbreed and eventually repopulate devastated areas across the Indian Ocean or
+                            the Caribbean.</p>
+                    </div>
+
+                    <div class="image-block">
+                        <div class="stat-card">
+                            <span class="stat-number">+6°C</span>
+                            <span class="stat-label">above their summer average tolerated without bleaching or
+                                dying.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="belize" class="reef-section section-padding status-vulnerable taillemax">
+            <div class="reef-content">
+                <div class="reef-header">
+                    <span class="badge-status">Status: Vulnerable</span>
+                    <h2>4. Belize Barrier Reef <span class="country">(Caribbean)</span></h2>
+                </div>
+
+                <div class="flex-container reverse">
+                    <div class="text-block">
+                        <h3>Key Features and Key Challenges</h3>
+                        <p>It is the second-largest reef system on the planet (home to the famous Great Blue Hole).
+                            Unlike others, its current fragility is directly linked to the immediate physical and
+                            chemical impact of nearby human activities: unregulated mass tourism, coastal development
+                            and concrete construction on beaches for resorts, and chemical pollution in swimming areas.
+                        </p>
+
+                        <h3>Impacts and Solutions</h3>
+                        <p>Dramatic coastal erosion is being observed (beaches are collapsing under waves because the
+                            damaged reef no longer acts as a shield), directly threatening the country's economy, as its
+                            GDP heavily relies on marine tourism. To address this, the government has banned chemical
+                            sunscreens and installed mandatory mooring buoys to ban anchors. Additionally, local
+                            fishermen are now being paid to become "gardeners of the sea" by managing coral nurseries.
+                        </p>
+                    </div>
+
+                    <div class="image-block">
+                        <div class="stat-card">
+                            <span class="stat-number">14k T</span>
+                            <span class="stat-label">of sunscreen washed into the oceans globally every year, releasing
+                                oxybenzone that stunts young polypes.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="okinawa" class="reef-section section-padding status-critical taillemax">
+            <div class="reef-content">
+                <div class="reef-header">
+                    <span class="badge-status">Status: Critical</span>
+                    <h2>5. Okinawa Reefs <span class="country">(Japan)</span></h2>
+                </div>
+
+                <div class="flex-container">
+                    <div class="text-block">
+                        <h3>Key Features and Key Challenges</h3>
+                        <p>It is the mirror of our industrial activity. Located near the coast of a major economic
+                            power, this reef bears the full brunt of direct chemical changes in seawater due to ocean
+                            acidification. By absorbing the excess CO2 released into the atmosphere by terrestrial
+                            industries, the water turns acidic and dissolves the calcium carbonate necessary for coral
+                            survival.</p>
+
+                        <h3>Impacts and Solutions</h3>
+                        <p>This triggers a true "marine osteoporosis." The coral skeleton becomes porous and brittle
+                            like glass, leading to the physical collapse of the habitat for thousands of rockfish
+                            species. In response, Japanese companies are developing cutting-edge technologies: they
+                            3D-print artificial reefs using ceramics or specific eco-friendly materials capable of
+                            locally neutralizing water acidity and forcing coral larvae to attach.</p>
+                    </div>
+
+                    <div class="image-block">
+                        <div class="stat-card">
+                            <span class="stat-number">+30%</span>
+                            <span class="stat-label">increase in global surface ocean acidity since the industrial
+                                revolution, shattering a millennial balance.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="chagos" class="reef-section section-padding status-mutation taillemax">
+            <div class="reef-content">
+                <div class="reef-header">
+                    <span class="badge-status">Status: Changing / In Mutation</span>
+                    <h2>6. Chagos Archipelago <span class="country">(Indian Ocean)</span></h2>
+                </div>
+
+                <div class="flex-container reverse">
+                    <div class="text-block">
+                        <h3>Key Features and Key Challenges</h3>
+                        <p>The pristine laboratory of the Earth. This ultra-isolated archipelago has no inhabitants, no
+                            local industry, no agricultural fertilizers, and no plastic. It is the absolute reference
+                            baseline for scientists. Yet, global thermal shock proves that the absence of local
+                            pollution does not protect against global climate disruption: when the atmosphere overheats,
+                            the water overheats everywhere.</p>
+
+                        <h3>Impacts and Solutions</h3>
+                        <p>This serves as irrefutable legal evidence used before the UN: even if an area is perfectly
+                            managed locally, it remains a victim of the global carbon pollution of other nations. There
+                            is no technological miracle on-site, but Chagos delivers an essential lesson: freed from any
+                            direct human aggression, its immune system is excellent, and the reef heals twice as fast as
+                            others as soon as temperatures drop.</p>
+                    </div>
+
+                    <div class="image-block">
+                        <div class="stat-card">
+                            <span class="stat-number">85%</span>
+                            <span class="stat-label">of its deep-sea corals were killed during the 2015 thermal shock
+                                despite complete isolation from civilization.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <p>Copyright Alexandre Coillot le Brun 2025</p>
+        <a href="page/team.html">Contact Us</a>
+    </footer>
+    <script>
+        function openNav() {
+            const nav = document.getElementById("myNav");
+            // Si le menu est ouvert, on le ferme. Sinon, on l'ouvre.
+            if (nav.style.height === "100%") {
+                nav.style.height = "0%";
+            } else {
+                nav.style.height = "100%";
+            }
+        }
+    </script>
+</body>
+
+</html>

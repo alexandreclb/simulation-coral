@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page d'accueil du site de Coral for Change">
+    <meta name="author" content="Alexandre Coillot le Brun">
+    <meta name="keywords" content="coral, structure, accueil">
+
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <title>Team</title>
+</head>
+
+<body>
+    <header>
+        <figure>
+            <a href="../index.html">
+                <img src="../img/logo.png" alt="Logo CFC" class="logo">
+            </a>
+        </figure>
+
+        <div class="burger" onclick="openNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="desktopNav">
+            <a href="../page/corail.html">The corals</a>
+            <a href="../page/recifs.html">Reefs of the world</a>
+            <a href="../page/structure.html">Our Structure</a>
+            <a href="../page/espece.html">Main Species</a>
+            <a href="../page/experience.html">Test Yours</a>
+            <a href="../page/team.html">About Us</a>
+        </nav>
+
+        <div id="myNav" class="overlay">
+            <div class="overlay-content">
+                <a href="../page/corail.html" onclick="openNav()">The corals</a>
+                <hr>
+                <a href="../page/recifs.html" onclick="openNav()">Reefs of the world</a>
+                <hr>
+                <a href="../page/structure.html" onclick="openNav()">Our Structure</a>
+                <hr>
+                <a href="../page/espece.html" onclick="openNav()">Main Species</a>
+                <hr>
+                <a href="../page/experience.html" onclick="openNav()">Test Yours</a>
+                <hr>
+                <a href="../page/team.html" onclick="openNav()">About Us</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="team-section">
+            <h2>Credits</h2>
+            <div class="team-member">
+                <h3>Maceo Audin </h3>
+                <p>CEO <br>maceo.audin@utc.fr</p>
+                <img src="" alt="">
+            </div>
+            <div class="team-member">
+                <h3>Alex Coillot le Brun</h3>
+                <p>Sustainability Analyst<br>alexandre.coillot_le_brun@utt.fr</p>
+                <img src="../img/alex.jpg" alt="">
+            </div>
+            <div class="team-member">
+                <h3>Celia Stutel</h3>
+                <p>COO <br>celia.stutel@utt.fr
+                </p>
+                <img src="" alt="">
+            </div>
+            <div class="team-member">
+                <h3>Enora Buis</h3>
+                <p>Game Director <br>enora.buis@utt.fr </p>
+                <img src="" alt="">
+            </div>
+            <div class="team-member">
+                <h3>Elouan Cotton-Boureille</h3>
+                <p>CTO <br>
+                </p>
+                <img src="" alt="">
+            </div>
+            <div class="team-member">
+                <h3>Summer </h3>
+                <p>Designer <br>
+                </p>
+                <img src="" alt="">
+            </div>
+        </div>
+    </main>
+    <script>
+        function openNav() {
+            const nav = document.getElementById("myNav");
+            // Si le menu est ouvert, on le ferme. Sinon, on l'ouvre.
+            if (nav.style.height === "100%") {
+                nav.style.height = "0%";
+            } else {
+                nav.style.height = "100%";
+            }
+        }
+    </script>
+</body>
+
+</html>

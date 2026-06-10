@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page d'accueil du site de Coral for Change">
+    <meta name="author" content="Alexandre Coillot le Brun">
+    <meta name="keywords" content="coral, structure, accueil">
+
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/responsive.css">
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <title>Accueil - Coral For Change</title>
+</head>
+
+<body>
+    <header>
+        <figure>
+            <a href="index.html">
+                <img src="img/logo.png" alt="Logo CFC" class="logo">
+            </a>
+        </figure>
+
+        <div class="burger" onclick="openNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav>
+            <a href="page/corail.html">The corals</a>
+            <a href="page/recifs.html">Reefs of the world</a>
+            <a href="page/structure.html">Our Structure</a>
+            <a href="page/espece.html">Main Species</a>
+            <a href="page/experience.html">Test Yours</a>
+            <a href="page/team.html">About Us</a>
+        </nav>
+
+        <div id="myNav" class="overlay">
+            <div class="overlay-content">
+                <a href="page/corail.html" onclick="openNav()">The corals</a>
+                <hr>
+                <a href="page/recifs.html" onclick="openNav()">Reefs of the world</a>
+                <hr>
+                <a href="page/structure.html" onclick="openNav()">Our Structure</a>
+                <hr>
+                <a href="page/espece.html" onclick="openNav()">Main Species</a>
+                <hr>
+                <a href="page/experience.html" onclick="openNav()">Test Yours</a>
+                <hr>
+                <a href="page/team.html" onclick="openNav()">About Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="accueil">
+            <hgroup>
+                <h1 id="titre">CORAL FOR CHANGE</h1>
+                <h2 id="sstitre">Actively participate in the preservation of coral reefs</h2>
+            </hgroup>
+        </section>
+
+        <div id="paraindex">
+
+            <section class="bandeau transition">
+                <article class="bandart">
+                    <h2>CORALS IN PERIL</h2>
+                    <p>Although still largely unknown to the general public, corals play a crucial role in the
+                        functioning of many ecosystems as well as in our modern society. Their preservation is therefore
+                        a critical issue for our world. However, due to rising ocean temperatures, these species are
+                        increasingthreatened. Learn more about this extraordinary underwater world</p>
+                    <a href="page/corail.html" class="arrow-link">More About Corals</a>
+                </article>
+                <div class="bandimg">
+                    <img src="img/corail-blanc.jpg" alt="">
+                </div>
+            </section>
+
+
+            <section class="bandeau">
+                <div class="bandimg">
+                    <img src="img/chagos.jpg" alt="">
+                </div>
+                <article class="bandart">
+                    <h2>REEFS OF THE WORLD</h2>
+                    <p>There are plenty of reefs across the world and they are all different from each other, have
+                        their own specificities and status. Some are in big danger whereas other stay strong and develop
+                        some habilities to survive in harder and harder conditions. Explore 6 of the main reefs in the
+                        world, some wordly known and other you've probably never heard of.</p>
+                    <a href="page/recifs.html" class="arrow-link">Explore our planet</a>
+                </article>
+
+            </section>
+
+
+
+            <section class="bandeau">
+                <article class="bandart">
+                    <h2>OUR STRUCTURE</h2>
+                    <p>not yet available</p>
+                    <a href="page/structure.html" class="arrow-link">Discover</a>
+                </article>
+                <div class="bandimg">
+                    <img src="img/" alt="">
+                </div>
+            </section>
+
+            <section class="bandeau">
+                <div class="bandimg">
+                    <img src="img/especes.jpg" alt="">
+                </div>
+                <article class="bandart">
+                    <h2>SPECIES</h2>
+                    <p>Contrary to popular belief, there are now more than 6,000 known species of coral, making it one
+                        of the largest families of species in the animal kingdom. Discover here the main species found
+                        across the world.</p>
+                    <a href="page/espece.html" class="arrow-link">I See the species</a>
+                </article>
+            </section>
+
+            <section class="bandeau">
+                <article class="bandart">
+                    <h2>OUR GROUP</h2>
+                    <p>not yet available</p>
+                    <a href="page/team.html" class="arrow-link">The team</a>
+                </article>
+                <div class="bandimg">
+                    <img src="img/" alt="">
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Copyright Alexandre Coillot le Brun 2025</p>
+        <a href="page/team.html">Contact Us</a>
+    </footer>
+
+    <script>
+        // Parallax script
+        if (window.innerWidth > 424) {
+            window.addEventListener('scroll', function () {
+                const parallax = document.getElementById('paraindex');
+                const scrollY = window.scrollY;
+                const maxScroll = document.body.scrollHeight - window.innerHeight;
+                const offsetY = (scrollY / maxScroll) * 100;
+
+                parallax.style.backgroundPosition = `center ${offsetY}%`;
+            });
+        }
+
+        // Gestion de l'ouverture/fermeture du menu mobile
+        function openNav() {
+            const nav = document.getElementById("myNav");
+            nav.style.height = nav.style.height === "100%" ? "0%" : "100%";
+        }
+    </script>
+</body>
+
+</html>
