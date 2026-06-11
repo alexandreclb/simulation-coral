@@ -955,6 +955,42 @@ html {
     opacity: 1;
 }
 
+/* 1. On permet à la classe .active de faire EXACTEMENT la même chose que le :hover */
+.map-point.active {
+    z-index: 100;
+}
+
+.map-point.active .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.gallerie>div.active::before {
+    opacity: 1;
+}
+
+.gallerie>div.active h3 {
+    opacity: 0;
+}
+
+.gallerie>div.active ul {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+/* 2. Pour les fiches secondaires (les cartes de la page corail par exemple) :
+   On désactive l'effet de zoom "collant" au doigt sur les écrans tactiles */
+@media (hover: none) {
+
+    .impact-card:hover,
+    .text-card:hover,
+    .stat-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+
 /* --------------------------------------------------------------------------------------------------------------------- */
 /* team */
 

@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="page contenant 6 recifs dans le monde">
     <meta name="author" content="Alexandre Coillot le Brun">
-    <meta name="keywords" content="">
+    <meta name="keywords" content="reefs">
 
     <link rel="stylesheet" href="../style/styles.css">
     <link rel="stylesheet" href="../style/responsive.css">
@@ -342,6 +342,33 @@
                 nav.style.height = "100%";
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // On cible les points de la carte et les fiches de la galerie faune
+            const interactiveElements = document.querySelectorAll('.map-point, .gallerie > div');
+
+            interactiveElements.forEach(element => {
+                element.addEventListener('click', function (e) {
+                    // Empêche le clic de fermer immédiatement à cause du document listener plus bas
+                    e.stopPropagation();
+
+                    // Si l'élément cliqué est déjà actif, on le ferme
+                    if (this.classList.contains('active')) {
+                        this.classList.remove('active');
+                    } else {
+                        // Optionnel : On ferme d'abord tous les autres éléments ouverts pour n'en laisser qu'un seul
+                        interactiveElements.forEach(el => el.classList.remove('active'));
+                        // On ouvre l'élément cliqué
+                        this.classList.add('active');
+                    }
+                });
+            });
+
+            // Si l'utilisateur clique n'importe où ailleurs dans la page, on ferme tout
+            document.addEventListener('click', function () {
+                interactiveElements.forEach(el => el.classList.remove('active'));
+            });
+        });
     </script>
 </body>
 
