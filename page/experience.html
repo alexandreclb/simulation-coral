@@ -92,6 +92,20 @@
                     </div>
                 </div>
 
+                <div class="pollution-row" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #0a2d46;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+                        <span class="health-lbl" style="color: var(--warm);">Pollution Level</span>
+                        <span id="pollutionV"
+                            style="font-family: 'fgmedium', sans-serif; font-size: 1.4rem; color: var(--warm); line-height: 1;">0/10</span>
+                    </div>
+                    <div class="bar-bg">
+                        <div id="pollutionFill"
+                            style="height: 100%; border-radius: 999px; background: var(--warm); width: 0%; transition: width .6s; box-shadow: 0 0 8px rgba(255, 124, 80, 0.5);">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card">
                     <p class="timeline-title">5-year evolution</p>
                     <div class="timeline">
@@ -169,14 +183,6 @@
                         <div class="range-labels"><span>0%</span><span>100%</span></div>
                     </div>
 
-                    <div class="param-block">
-                        <div class="param-header">
-                            <span class="param-name">Salinity</span>
-                            <span class="param-val"><span id="sV">30.0</span><span class="param-unit">g/L</span></span>
-                        </div>
-                        <input type="range" id="ssS" min="30" max="40" step="0.5" value="30">
-                        <div class="range-labels"><span>30 g/L</span><span>40 g/L</span></div>
-                    </div>
 
                     <div class="hint-box" id="hintBox">
                         <div class="hint-label">&#9670; Did you know?</div>
@@ -261,65 +267,67 @@
         </div>
         <div class="toast" id="toast">Coral tested!</div>
 
-
         <script>
-            /*             // 1. On récupère les paramètres dans l'URL (ex: ?coral=3)
-                        const urlParams = new URLSearchParams(window.location.search);
-                        const coralID = urlParams.get('coral') || "1"; // Par défaut, corail 1 si aucun paramètre
-            
-                        console.log("L'utilisateur contrôle actuellement le Corail numéro :", coralID);
-            
-                        // Vous pouvez même afficher dynamiquement le numéro sur la page pour l'utilisateur :
-                        // document.getElementById('coralTitle').textContent = "Test my coral n°" + coralID; */
+            /* // 1. On récupère les paramètres dans l'URL (ex: ?coral=3)
+            const urlParams = new URLSearchParams(window.location.search);
+            const coralID = urlParams.get('coral') || "1"; // Par défaut, corail 1 si aucun paramètre
+        
+            console.log("L'utilisateur contrôle actuellement le Corail numéro :", coralID); */
+
             // ══════════════════════════════════════════
             // CONFIGURATION ET LOGIQUE DU QUIZ ÉCOLOGIQUE
             // ══════════════════════════════════════════
             var quizQuestions = [
                 {
-                    q: "Where do you throw your cigarette butt?",
+                    q: "Where do you usually throw away your cigarette butts?",
                     options: [
-                        { text: "Generally in the bin, but if not, I'll just throw it away", penalty: 15 },
-                        { text: "Always in a bin, and if there isn't one, I'll keep it in my pocket", penalty: 2 },
-                        { text: "I don't smoke", penalty: 0 }
+                        { text: "In a trash can if possible, otherwise on the ground.", penalty: 10 },
+                        { text: "Always in a trash can, even if it means keeping the butt with me in the meantime.", penalty: 4 },
+                        { text: "I don't smoke.", penalty: 0 },
+                        { text: "On the ground, in the gutter, or out the window without really thinking about it.", penalty: 20 }
                     ]
                 },
                 {
-                    q: "When getting takeout from a restaurant...",
+                    q: "How do you usually order takeout food?",
                     options: [
-                        { text: "I always bring my own Tupperware or reusable bottle", penalty: 0 },
-                        { text: "I just order normally with the restaurant's plastic packaging", penalty: 12 },
-                        { text: "I never order takeout", penalty: 0 },
-                        { text: "I refuse plastic bags or cutlery that aren't necessary", penalty: 4 }
+                        { text: "Using my own reusable containers (Tupperware, lunchbox, flask).", penalty: 0 },
+                        { text: "With the standard single-use packaging provided by the restaurant.", penalty: 15 },
+                        { text: "By explicitly asking to refuse unnecessary bags, napkins, and plastic cutlery.", penalty: 5 },
+                        { text: "I never order takeout food.", penalty: 0 }
                     ]
                 },
                 {
-                    q: "What kind of vacation appeals to you the most?",
+                    q: "What type of vacation appeals to you the most?",
                     options: [
-                        { text: "A cruise in the Bahamas", penalty: 18 },
-                        { text: "A road trip across Europe", penalty: 8 },
-                        { text: "A relaxing vacation visiting family in France", penalty: 0 }
+                        { text: "A tropical cruise to idyllic destinations.", penalty: 25 },
+                        { text: "A major road trip abroad to explore multiple countries.", penalty: 15 },
+                        { text: "A peaceful holiday with family, staying at home or exploring my local region.", penalty: 0 },
+                        { text: "A long-haul flight to visit a major global capital or an all-inclusive resort.", penalty: 20 }
                     ]
                 },
                 {
-                    q: "During your shower...",
+                    q: "What is your typical shower routine?",
                     options: [
-                        { text: "I blast the music and enjoy a long, relaxing shower", penalty: 6 },
-                        { text: "I take a quick and efficient shower", penalty: 0 },
-                        { text: "It depends on my mood", penalty: 3 }
+                        { text: "I put on some music and take my time to fully enjoy it.", penalty: 12 },
+                        { text: "It's a quick, efficient shower without wasting any time.", penalty: 0 },
+                        { text: "It completely depends on my mood.", penalty: 5 },
+                        { text: "I regularly take long baths or let the hot water run for a long time to relax.", penalty: 20 }
                     ]
                 },
                 {
-                    q: "To get around Shanghai:",
+                    q: "How do you usually get around the city?",
                     options: [
-                        { text: "You use the cheap and efficient metro", penalty: 0 },
-                        { text: "You go everywhere by bike", penalty: 0 },
-                        { text: "You always take a Didi (ride-share) because it's easier, even if it's expensive", penalty: 6 }
+                        { text: "By subway / public transport: it's affordable and efficient!", penalty: 2 },
+                        { text: "By bicycle or walking: I do everything like that.", penalty: 0 },
+                        { text: "Always by taxi or ride-sharing apps (Uber, Didi...): it's the easiest and fastest way.", penalty: 15 },
+                        { text: "A mix of everything, depending on the weather and distance.", penalty: 5 }
                     ]
                 }
             ];
 
             var currentQuestionIndex = 0;
             var quizPenalty = 0;
+            var pollutionScore = 0; // Note finale de pollution calculée sur 10
 
             function renderQuizQuestion() {
                 var quizCard = document.getElementById('quizCard');
@@ -349,13 +357,29 @@
                 var simContent = document.getElementById('simulatorContent');
                 simContent.style.display = 'flex';
 
-                var startingHealth = Math.max(0, 100 - quizPenalty);
-                updateUI(startingHealth, 0, null);
+                // Calcul dynamique de la pollution sur 10. (La somme des pires pénalités possibles est de 15+12+18+6+6 = 57)
+                var maxPossiblePenalty = 57;
+                var rawPollution = (quizPenalty / maxPossiblePenalty) * 10;
+                pollutionScore = Math.round(rawPollution * 10) / 10; // Arrondi à 1 décimale (ex: 7.4/10)
+
+                // Mise à jour de l'affichage graphique de la jauge de pollution
+                var pV = document.getElementById('pollutionV');
+                var pFill = document.getElementById('pollutionFill');
+                if (pV) pV.textContent = pollutionScore + "/10";
+                if (pFill) pFill.style.width = (pollutionScore * 10) + "%";
+
+                // Initialisation de l'affichage avec les valeurs courantes des curseurs
+                var t = parseFloat(tS.value);
+                var p = parseFloat(pS.value);
+                var l = parseFloat(lS.value);
+
+                var h = computeHealth(t, p, l);
+                var st = computeStress(t, p, l);
+                updateUI(h, st, null);
             }
 
             // ══════════════════════════════════════════
-            // HINTS — one per param × direction
-            // Based on real coral science
+            // HINTS — Indisponibilités environnementales
             // ══════════════════════════════════════════
             var HINTS = {
                 temp_low: {
@@ -381,19 +405,11 @@
                 light_high: {
                     param: 'Light',
                     text: 'Excessive light, especially combined with high temperature, increases oxidative stress in corals. This accelerates the expulsion of zooxanthellae — the first visible step of bleaching.'
-                },
-                sal_low: {
-                    param: 'Salinity',
-                    text: 'Heavy rainfall or freshwater runoff can dilute seawater around reefs. Corals evolved in stable saline environments and struggle to regulate their cells when salinity drops sharply.'
-                },
-                sal_high: {
-                    param: 'Salinity',
-                    text: 'High salinity forces corals to expend extra energy on osmoregulation — energy they cannot spend on growth or reproduction. This leaves them weakened and more vulnerable to disease.'
                 }
             };
 
             // ══════════════════════════════════════════
-            // ATTEMPTS
+            // ESSAIS (ATTEMPTS)
             // ══════════════════════════════════════════
             var MAX_ATTEMPTS = 5;
             var attemptsUsed = 0;
@@ -417,24 +433,24 @@
 
                 var successSub = document.getElementById('successSub');
 
-                // Correction du nom de la variable (quizPenalty au lieu de totalQuizPenalty)
-                if (quizPenalty > 0) {
-                    successSub.innerHTML = "You found the ideal parameters but your actions made a negative impact on your coral.";
-                    successSub.style.color = "#ff7c50"; // Met le texte en orange d'alerte
+                if (pollutionScore > 0) {
+                    var finalH = computeHealth(parseFloat(tS.value), parseFloat(pS.value), parseFloat(lS.value));
+                    successSub.innerHTML = "You found the ideal environmental parameters! However, due to your previous lifestyle choices, the pollution level in the water is at <b>" + pollutionScore + "/10</b>. Your coral cannot fully recover and its health is capped at " + finalH + "%.";
+                    successSub.style.color = "#ff7c50"; // Alerte en orange
                 } else {
-                    successSub.innerHTML = "You found the ideal parameters.<br>Your coral is in perfect health.";
-                    successSub.style.color = ""; // Couleur normale
+                    successSub.innerHTML = "Perfect! You found the ideal parameters and kept the environment pristine (Pollution: 0/10).<br>Your coral is in perfect health!";
+                    successSub.style.color = ""; // Couleur turquoise par défaut
                 }
             }
+
             // ══════════════════════════════════════════
-            // WORST PARAM HINT — always on highest penalty
+            // DÉTERMINATION DU PIRE PARAMÈTRE ÉCOLOGIQUE
             // ══════════════════════════════════════════
-            function showWorstHint(t, ph, l, s) {
+            function showWorstHint(t, ph, l) {
                 var penalties = [
                     { key: t > 28 ? 'temp_high' : 'temp_low', val: t > 28 ? (t - 28) * 8 : (26 - t) * 3 },
                     { key: ph > 8.4 ? 'ph_high' : 'ph_low', val: ph > 8.4 ? (ph - 8.4) * 6 : (8 - ph) * 12 },
-                    { key: l > 85 ? 'light_high' : 'light_low', val: l > 85 ? (l - 85) * 0.7 : (60 - l) * 1.5 },
-                    { key: s > 38 ? 'sal_high' : 'sal_low', val: Math.abs(s - 35) * 2 }
+                    { key: l > 85 ? 'light_high' : 'light_low', val: l > 85 ? (l - 85) * 0.7 : (60 - l) * 1.5 }
                 ];
 
                 var total = penalties.reduce(function (sum, x) { return sum + x.val; }, 0);
@@ -450,7 +466,7 @@
             }
 
             // ══════════════════════════════════════════
-            // CORAL DRAWING
+            // DESSIN DU CANVAS CORAIL (CANVAS DRAWING)
             // ══════════════════════════════════════════
             function drawCoral(canvas, health) {
                 var ctx = canvas.getContext('2d');
@@ -501,29 +517,37 @@
             }
 
             // ══════════════════════════════════════════
-            // FORMULAS (MODIFIÉES POUR LE QUIZ)
+            // FORMULES MATHÉMATIQUES (SANTÉ & STRESS)
             // ══════════════════════════════════════════
-            function computeHealth(t, ph, l, s) {
-                var h = 100 - quizPenalty; // On déduit la pénalité accumulée lors du quiz
-                if (t > 28) h -= (t - 28) * 8; else if (t < 26) h -= (26 - t) * 3;
-                if (ph < 8) h -= (8 - ph) * 12; else if (ph > 8.4) h -= (ph - 8.4) * 6;
-                if (l < 60) h -= (60 - l) * 1.5; else if (l > 85) h -= (l - 85) * 0.7;
-                h -= Math.abs(s - 35) * 2;
-                return Math.max(0, Math.min(100, h));
+            function computeHealth(t, ph, l) {
+                // 1. Calcul de la santé optimale environnementale globale (base 100)
+                var envHealth = 100;
+                if (t > 28) envHealth -= (t - 28) * 8; else if (t < 26) envHealth -= (26 - t) * 3;
+                if (ph < 8) envHealth -= (8 - ph) * 12; else if (ph > 8.4) envHealth -= (ph - 8.4) * 6;
+                if (l < 60) envHealth -= (60 - l) * 1.5; else if (l > 85) envHealth -= (l - 85) * 0.7;
+
+                envHealth = Math.max(0, envHealth);
+
+                // 2. Impact de la pollution : 10/10 en pollution enlève directement 50% de vie maximum.
+                var finalHealth = envHealth - (pollutionScore * 5);
+
+                return Math.max(0, Math.min(100, Math.round(finalHealth)));
             }
-            function computeStress(t, ph, l, s) {
+
+            function computeStress(t, ph, l) {
                 var st = 0;
                 if (t < 23) st += (23 - t) * 1; else if (t > 30) st += (t - 30) * 2;
                 if (ph < 7.8) st += (7.8 - ph) * 5; else if (ph > 8.6) st += (ph - 8.6) * 3;
                 if (l < 60) st += (60 - l) * 1.25; else if (l > 85) st += (l - 85) * 0.3;
-                if (s < 33) st += (33 - s) * 0.5; else if (s > 38) st += (s - 38) * 0.5;
                 return st;
             }
+
             function healthForYear(base, stress, year) {
                 var h = base;
-                for (var y = 0; y < year; y++)h -= stress * 0.6;
+                for (var y = 0; y < year; y++) h -= stress * 0.6;
                 return Math.max(0, Math.min(100, h));
             }
+
             function getColor(h) {
                 if (h > 75) return { hex: '#00cfff', label: 'Healthy coral', tb: '#00cfff15', tc: '#00cfff' };
                 if (h > 50) return { hex: '#6b8eff', label: 'Moderate stress', tb: '#6b8eff15', tc: '#6b8eff' };
@@ -540,6 +564,7 @@
                 var hBar = document.getElementById('hBar');
                 var sTag = document.getElementById('sTag');
                 var stVal = document.getElementById('stVal');
+
                 hNum.textContent = Math.round(h) + '%'; hNum.style.color = c.hex;
                 hBar.style.width = h + '%';
                 hBar.style.background = 'linear-gradient(90deg,#005f8a,' + c.hex + ')';
@@ -547,6 +572,7 @@
                 sTag.textContent = c.label; sTag.style.background = c.tb; sTag.style.color = c.tc; sTag.style.border = '1px solid ' + c.tc + '30';
                 stVal.textContent = st.toFixed(1);
                 stVal.style.color = st < 5 ? '#5a8aaa' : st < 15 ? '#ffaa50' : '#ff7c50';
+
                 drawCoral(document.getElementById('coralMain'), h);
                 for (var y = 0; y <= 5; y++) {
                     var yh = years ? years[y] : healthForYear(h, st, y);
@@ -558,19 +584,18 @@
             }
 
             // ══════════════════════════════════════════
-            // SLIDERS
+            // GESTIONNAIRES DES CURSEURS (SLIDERS)
             // ══════════════════════════════════════════
             var tS = document.getElementById('tS');
             var pS = document.getElementById('pS');
             var lS = document.getElementById('lS');
-            var ssS = document.getElementById('ssS');
+
             tS.addEventListener('input', function () { document.getElementById('tV').textContent = parseFloat(this.value).toFixed(1); });
             pS.addEventListener('input', function () { document.getElementById('pV').textContent = parseFloat(this.value).toFixed(2); });
             lS.addEventListener('input', function () { document.getElementById('lV').textContent = this.value; });
-            ssS.addEventListener('input', function () { document.getElementById('sV').textContent = parseFloat(this.value).toFixed(1); });
 
             // ══════════════════════════════════════════
-            // BUTTON
+            // CLIC SUR LE BOUTON "TEST"
             // ══════════════════════════════════════════
             document.getElementById('btnU').addEventListener('click', function () {
                 if (attemptsUsed >= MAX_ATTEMPTS) return;
@@ -578,20 +603,22 @@
                 var t = parseFloat(tS.value);
                 var p = parseFloat(pS.value);
                 var l = parseFloat(lS.value);
-                var s = parseFloat(ssS.value);
-                var h = computeHealth(t, p, l, s);
-                var st = computeStress(t, p, l, s);
+
+                var h = computeHealth(t, p, l);
+                var st = computeStress(t, p, l);
 
                 updateUI(h, st, null);
                 attemptsUsed++;
                 updateDots();
-
+                document.getElementById('hNum').scrollIntoView({ behavior: 'smooth', block: 'center' });
                 var toast = document.getElementById('toast');
-                toast.classList.add('show');
-                setTimeout(function () { toast.classList.remove('show'); }, 2200);
+                if (toast) {
+                    toast.classList.add('show');
+                    setTimeout(function () { toast.classList.remove('show'); }, 2200);
+                }
 
-                // On vérifie si les curseurs sont dans les zones parfaites
-                var isPerfectEnv = (t >= 26 && t <= 28 && p >= 8.0 && p <= 8.4 && l >= 60 && l <= 85 && s === 35);
+                // Le milieu parfait requiert : Température [26-28], pH [8.0-8.4] et Lumière [60-85]
+                var isPerfectEnv = (t >= 26 && t <= 28 && p >= 8.0 && p <= 8.4 && l >= 60 && l <= 85);
 
                 if (isPerfectEnv) {
                     document.getElementById('hintBox').classList.remove('show');
@@ -599,7 +626,7 @@
                     return;
                 }
 
-                showWorstHint(t, p, l, s);
+                showWorstHint(t, p, l);
 
                 if (attemptsUsed >= MAX_ATTEMPTS) {
                     setTimeout(function () { showBlocked(); }, 1800);
@@ -607,7 +634,7 @@
             });
 
             // ══════════════════════════════════════════
-            // RESET & INIT
+            // BOUTONS DE RÉINITIALISATION & INITIALISATION
             // ══════════════════════════════════════════
             function doReset() {
                 attemptsUsed = 0;
@@ -615,15 +642,22 @@
                 document.getElementById('paramsCard').style.display = 'block';
                 document.getElementById('blockedCard').style.display = 'none';
                 document.getElementById('successCard').style.display = 'none';
+
                 tS.value = 20; document.getElementById('tV').textContent = '20.0';
                 pS.value = 6.5; document.getElementById('pV').textContent = '6.50';
                 lS.value = 0; document.getElementById('lV').textContent = '0';
-                ssS.value = 30; document.getElementById('sV').textContent = '30.0';
                 document.getElementById('hintBox').classList.remove('show');
 
-                // Reset de la logique du questionnaire
+                // Reset de la logique du questionnaire et de la pollution
                 currentQuestionIndex = 0;
                 quizPenalty = 0;
+                pollutionScore = 0;
+
+                var pV = document.getElementById('pollutionV');
+                var pFill = document.getElementById('pollutionFill');
+                if (pV) pV.textContent = "0/10";
+                if (pFill) pFill.style.width = "0%";
+
                 document.getElementById('quizCard').style.display = 'block';
                 document.getElementById('simulatorContent').style.display = 'none';
                 renderQuizQuestion();
@@ -631,16 +665,19 @@
 
             document.getElementById('btnReset').addEventListener('click', doReset);
             document.getElementById('btnReset2').addEventListener('click', doReset);
+
             document.getElementById('blockedCard').style.display = 'none';
             document.getElementById('successCard').style.display = 'none';
             document.getElementById('paramsCard').style.display = 'block';
-            // Lancement au chargement
+
+            // Lancement de l'état d'origine au chargement complet
             updateDots();
             updateUI(100, 0, null);
             renderQuizQuestion();
+
+            // Menu Burger Mobile Navigation
             function openNav() {
                 const nav = document.getElementById("myNav");
-                // Si le menu est ouvert, on le ferme. Sinon, on l'ouvre.
                 if (nav.style.height === "100%") {
                     nav.style.height = "0%";
                 } else {
