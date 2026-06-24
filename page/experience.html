@@ -357,10 +357,26 @@
                 var simContent = document.getElementById('simulatorContent');
                 simContent.style.display = 'flex';
 
-                // Calcul dynamique de la pollution sur 10. (La somme des pires pénalités possibles est de 15+12+18+6+6 = 57)
-                var maxPossiblePenalty = 57;
-                var rawPollution = (quizPenalty / maxPossiblePenalty) * 10;
+                // 1. Calcul dynamique de la pénalité maximale possible selon ton tableau de questions
+                var maxPossiblePenalty = 0;
+                quizQuestions.forEach(function (q) {
+                    var maxQ = 0;
+                    q.options.forEach(function (opt) {
+                        if (opt.penalty > maxQ) maxQ = opt.penalty;
+                    });
+                    maxPossiblePenalty += maxQ;
+                });
+
+                // 2. Calcul proportionnel de la pollution sur 10
+                var rawPollution = 0;
+                if (maxPossiblePenalty > 0) {
+                    rawPollution = (quizPenalty / maxPossiblePenalty) * 10;
+                }
+
                 pollutionScore = Math.round(rawPollution * 10) / 10; // Arrondi à 1 décimale (ex: 7.4/10)
+
+                // Sécurité pour ne jamais dépasser 10/10
+                if (pollutionScore > 10) pollutionScore = 10;
 
                 // Mise à jour de l'affichage graphique de la jauge de pollution
                 var pV = document.getElementById('pollutionV');

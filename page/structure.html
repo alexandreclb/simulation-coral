@@ -57,12 +57,143 @@
         </div>
     </header>
     <main>
-        <p>pas encore créée</p>
+        <section class="map-container">
+            <img src="../img/structure-fond.png" class="str-fond">
+
+            <div class="map-point point-str" style="top:54% ; left:65%;">
+                <div class="tooltip-str">
+                    <h3>Interactive Corals</h3>
+                    <p>4 corals are dedicated to the testing of the users. They are are 3D printed, using PLA, and
+                        interactive : they change color depending on the different life actions and parameters choices
+                        from the user.</p>
+                </div>
+            </div>
+
+            <div class="map-point point-str" style="top:45% ; left:27% ;">
+                <div class="tooltip-str">
+                    <h3>Representative Corals</h3>
+                    <p>6 corals are dedicated to raise awareness about the state of health of some <a
+                            href="../page/recifs.html" class="lien-str">main reefs of the world</a> to show the real
+                        world's state and
+                        the urgency to act.</p>
+                </div>
+            </div>
+
+            <div class="map-point point-str" style="top:78% ; left:51% ;">
+                <div class="tooltip-str">
+                    <h3>Cable Management</h3>
+                    <p>The different LEDs inside of the corals are linked to the electronical stuff with some welded
+                        cables
+                        that cross the
+                        structure and connect all the branches to each other.</p>
+                </div>
+            </div>
+
+            <div class="map-point point-str" style="top:90% ; left:50% ;">
+                <div class="tooltip-str">
+                    <h3>Base</h3>
+                    <p>The base has 2 main missions : it helps the structure to stand up and welcomes all the
+                        alectonical stuff so that it is available, hidden and aesthetic. </p>
+
+                </div>
+            </div>
+
+            <div class="map-point point-str" style="top:57% ; left:50% ;">
+                <div class="tooltip-str">
+                    <h3>Fabrication</h3>
+                    <p>The core structure is made out of PVC pieces such as connecting tubes and saddles on which we
+                        applied cement to give the impression of havinf a ... structure</p>
+                </div>
+            </div>
+
+            <div class="map-point point-str" style="top:40% ; left:51% ;">
+                <div class="tooltip-str">
+                    <h3>Decorations</h3>
+                    <p>We added some thematic decorations to the structure to immerse the user into the underwater world
+                        while interracting with it. They are mainly made out of clay that has been painted to develop
+                        the artistic side of the project.</p>
+                </div>
+            </div>
+        </section>
+
     </main>
     <footer>
         <p>Copyright Alexandre Coillot le Brun 2026</p>
-        <a href="page/team.html">Contact Us</a>
+        <a href="../page/team.html">Contact Us</a>
     </footer>
 </body>
+<script>
+    function openNav() {
+        const nav = document.getElementById("myNav");
+        // Si le menu est ouvert, on le ferme. Sinon, on l'ouvre.
+        if (nav.style.height === "100%") {
+            nav.style.height = "0%";
+        } else {
+            nav.style.height = "100%";
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        const interactiveElements = document.querySelectorAll('.map-point, .gallerie > div');
+
+        interactiveElements.forEach(element => {
+            element.addEventListener('click', function (e) {
+                e.stopPropagation();
+
+                // Si l'élément cliqué est déjà actif, on le ferme et on réinitialise son style
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active');
+                    const tooltip = this.querySelector('.tooltip-str');
+                    if (tooltip) tooltip.style.transform = '';
+                } else {
+                    // On ferme tous les autres et on réinitialise leur position
+                    interactiveElements.forEach(el => {
+                        el.classList.remove('active');
+                        const t = el.querySelector('.tooltip-str');
+                        if (t) t.style.transform = ''; // Reset complet des styles inline
+                    });
+
+                    // On active le point actuel
+                    this.classList.add('active');
+
+                    // 🖥️ GESTION INTELLIGENTE DU DÉBORDEMENT (Uniquement sur Ordinateur)
+                    if (window.innerWidth > 426) {
+                        const tooltip = this.querySelector('.tooltip-str');
+                        if (tooltip) {
+                            // On force d'abord le centrage parfait par défaut pour le calcul
+                            tooltip.style.transform = 'translateX(-50%)';
+
+                            // Mesure de la position réelle du cadre dans l'écran
+                            const rect = tooltip.getBoundingClientRect();
+                            const screenWidth = window.innerWidth;
+                            const margin = 20; // Marge de sécurité en pixels par rapport aux bords de l'écran
+                            let shiftX = 0;
+
+                            // Détecter si ça dépasse à gauche
+                            if (rect.left < margin) {
+                                shiftX = margin - rect.left; // Glisse vers la droite
+                            }
+                            // Détecter si ça dépasse à droite
+                            else if (rect.right > screenWidth - margin) {
+                                shiftX = (screenWidth - margin) - rect.right; // Glisse vers la gauche
+                            }
+
+                            // On applique le centrage d'origine suivi du décalage de sécurité calculé
+                            tooltip.style.transform = `translateX(-50%) translateX(${shiftX}px)`;
+                        }
+                    }
+                }
+            });
+        });
+
+        // Clic n'importe où ailleurs = fermeture et réinitialisation de tous les cadres
+        document.addEventListener('click', function () {
+            interactiveElements.forEach(el => {
+                el.classList.remove('active');
+                const tooltip = el.querySelector('.tooltip-str');
+                if (tooltip) tooltip.style.transform = '';
+            });
+        });
+    });
+</script>
 
 </html>

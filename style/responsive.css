@@ -129,6 +129,19 @@
         font-size: 3.5rem;
     }
 
+    .str-fond {
+        width: 100%;
+    }
+
+    .tooltip-str {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        bottom: auto;
+        transform: translate(-50%, -50%);
+        width: 250px;
+    }
+
 
     /* ----------------------------------especes------------------------------------------------------------- */
     .faune-titre h1 {
