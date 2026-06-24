@@ -429,6 +429,7 @@
             // ══════════════════════════════════════════
             var MAX_ATTEMPTS = 5;
             var attemptsUsed = 0;
+            var firstTestDone = false;
 
             function updateDots() {
                 for (var i = 0; i < 5; i++) {
@@ -581,7 +582,14 @@
                 var sTag = document.getElementById('sTag');
                 var stVal = document.getElementById('stVal');
 
-                hNum.textContent = Math.round(h) + '%'; hNum.style.color = c.hex;
+                // MODIFICATION ICI : On affiche le % uniquement si le premier test est fait
+                if (firstTestDone) {
+                    hNum.textContent = Math.round(h) + '%';
+                } else {
+                    hNum.textContent = "—"; // S'affiche après le quiz, avant le premier test
+                }
+                hNum.style.color = c.hex;
+
                 hBar.style.width = h + '%';
                 hBar.style.background = 'linear-gradient(90deg,#005f8a,' + c.hex + ')';
                 hBar.style.boxShadow = '0 0 10px ' + c.hex + '70';
@@ -595,7 +603,11 @@
                     var cv = document.getElementById('yr' + y);
                     var yl = document.getElementById('yh' + y);
                     if (cv) drawCoral(cv, yh);
-                    if (yl) yl.textContent = Math.round(yh) + '%';
+
+                    // MODIFICATION ICI AUSSI : Gestion du texte de la timeline des 5 ans
+                    if (yl) {
+                        yl.textContent = firstTestDone ? Math.round(yh) + '%' : "—";
+                    }
                 }
             }
 
@@ -622,7 +634,7 @@
 
                 var h = computeHealth(t, p, l);
                 var st = computeStress(t, p, l);
-
+                firstTestDone = true;
                 updateUI(h, st, null);
                 attemptsUsed++;
                 updateDots();
@@ -654,6 +666,7 @@
             // ══════════════════════════════════════════
             function doReset() {
                 attemptsUsed = 0;
+                firstTestDone = false;
                 updateDots();
                 document.getElementById('paramsCard').style.display = 'block';
                 document.getElementById('blockedCard').style.display = 'none';
