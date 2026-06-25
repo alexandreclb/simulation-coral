@@ -273,4 +273,28 @@
     .text-card {
         padding: 1.5rem;
     }
+
+    /* --- ADOPTION RESPONSIVE (426px) --- */
+    .adoption-section {
+        padding: 3.5rem 1rem;
+    }
+
+    .adoption-section .text-block {
+        text-align: center;
+        /* Centre le titre et le bouton sur mobile */
+    }
+
+    .adoption-section .text-block p {
+        text-align: left;
+        /* Garde le texte lisible aligné à gauche */
+    }
+
+    .btn-adopt {
+        display: block;
+        width: 100%;
+        /* Le bouton prend toute la largeur sur smartphone pour être cliqué facilement */
+        text-align: center;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
 }

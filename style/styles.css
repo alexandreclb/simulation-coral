@@ -882,6 +882,58 @@ html {
     margin-bottom: 0.8rem;
 }
 
+/* --- NEW ADOPTION SECTION STYLES --- */
+.adoption-section {
+    background-color: rgba(28, 113, 166, 0.05);
+    /* Léger fond bleuté pour séparer des autres sections */
+    border-top: 1px solid rgba(28, 113, 166, 0.1);
+}
+
+/* Conteneur fluide pour garder le ratio 16:9 de la vidéo YouTube */
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 49, 79, 0.15);
+}
+
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Bouton d'action principal style Orange Corail */
+.btn-adopt {
+    display: inline-block;
+    background-color: var(--couleur-5);
+    /* Orange vibrant */
+    color: var(--primary-light) !important;
+    /* Texte blanc */
+    padding: 0.8rem 2.2rem;
+    font-family: "neusabold";
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 6px;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(242, 113, 39, 0.2);
+}
+
+.btn-adopt:hover {
+    background-color: var(--couleur-2);
+    /* Devient bleu marine au survol */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 49, 79, 0.3);
+}
+
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* FAUNE */
